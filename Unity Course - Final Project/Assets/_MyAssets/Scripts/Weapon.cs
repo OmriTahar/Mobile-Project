@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 
     public Transform Camera;
     public Transform FirePoint;
+    public ParticleSystem MuzzleFlash;
 
     BulletPool _bulletPool;
 
@@ -21,20 +22,19 @@ public class Weapon : MonoBehaviour
         _bulletPool = BulletPool.Instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_isShooting)
         {
-            if (_fireTimer > 0)
-            {
-                _fireTimer -= Time.deltaTime;
-            }
-            else
-            {
-                _fireTimer = _fireDelay;
-                Shoot();
-            }
+            //if (_fireTimer > 0)
+            //{
+            //    _fireTimer -= Time.deltaTime;
+            //}
+            //else
+            //{
+            //    _fireTimer = _fireDelay;
+            //    Shoot();
+            //}
         }
     }
 
@@ -42,20 +42,22 @@ public class Weapon : MonoBehaviour
     {
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
+        MuzzleFlash.Play();
     }
 
     public void PullTrigger()
     {
         // Automate
-        if (_fireDelay > 0)
-            _isShooting = true;
-        else
-            Shoot();
+        //if (_fireDelay > 0)
+        _isShooting = true;
+        //else
+        Shoot();
     }
 
     public void ReleaseTrigger()
     {
         _isShooting = false;
-        _fireTimer = 0f;
+        
+        //_fireTimer = 0f;
     }
 }
