@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody rigidbody;
     public float lifeTime;
-    // Test of Omri Branch;
     public void Activate(Vector3 position, Vector3 velocity)
     {
         transform.position = position;
