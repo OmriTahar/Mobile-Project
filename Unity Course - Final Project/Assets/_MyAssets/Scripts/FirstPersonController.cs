@@ -8,17 +8,28 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CharacterController characterController;
 
-    [SerializeField] private float cameraSensitivity;
+    [Header("Basic Movement")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float cameraSensitivity;
     [SerializeField] private float moveInputDeadZone;
 
-    private int leftFingerId, rightFingerId;
-    private float halfScreenWidth;
+    [Header("Gravity & Jumping")]
+    public float GravityWhenGrounded = 10; 
+    public float GravityInAir = 10;           
+    public float JumpForce = 10;
+    private float _verticalVelocity;
+
+    [Header("Ground Check")]
+    public Transform GroundCheck;
+    public float GroudCheckRadius;
+    public LayerMask GroundLayers;
+    private bool _isGrounded;
+
+    private int _leftFingerId, _rightFingerId;
+    private float _halfScreenWidth;
+    private float _cameraPitch;
 
     private Vector2 lookInput;
-    private float cameraPitch;
-
-    // Player movement
     private Vector2 moveTouchStartPosition;
     private Vector2 moveInput;
 
@@ -26,10 +37,10 @@ public class FirstPersonController : MonoBehaviour
     void Start()
     {
         // id = -1 means the finger is not being tracked
-        leftFingerId = -1;
-        rightFingerId = -1;
+        _leftFingerId = -1;
+        _rightFingerId = -1;
 
-        halfScreenWidth = Screen.width / 2;
+        _halfScreenWidth = Screen.width / 2;
 
         // calculate the movement input dead zone
         moveInputDeadZone = Mathf.Pow(Screen.height / moveInputDeadZone, 2);
@@ -37,21 +48,38 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
+        ApplyGravity();
         GetTouchInput();
 
-        if (rightFingerId != -1)
+        if (_rightFingerId != -1)
         {
-            // Ony look around if the right finger is being tracked
-            Debug.Log("Rotating");
+            // Only look around if the right finger is being tracked
+            //Debug.Log("Rotating");
             LookAround();
         }
 
-        if (leftFingerId != -1)
+        if (_leftFingerId != -1)
         {
-            // Ony move if the left finger is being tracked
-            Debug.Log("Moving");
+            // Only move if the left finger is being tracked
+            //Debug.Log("Moving");
             Move();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        _isGrounded = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers);
+    }
+
+    void ApplyGravity()
+    {
+        if (_isGrounded && _verticalVelocity <= 0)
+            _verticalVelocity = -GravityWhenGrounded * Time.deltaTime;
+        else
+            _verticalVelocity -= GravityInAir * Time.deltaTime;
+
+        Vector3 verticalMovement = transform.up * _verticalVelocity;
+        characterController.Move(verticalMovement * Time.deltaTime);
     }
 
     void GetTouchInput()
@@ -65,44 +93,44 @@ public class FirstPersonController : MonoBehaviour
             {
                 case TouchPhase.Began:
 
-                    if (touch.position.x < halfScreenWidth && leftFingerId == -1)
+                    if (touch.position.x < _halfScreenWidth && _leftFingerId == -1)
                     {
                         // Start tracking the left finger if it was not previously being tracked
-                        leftFingerId = touch.fingerId;
+                        _leftFingerId = touch.fingerId;
 
                         // Set the start position for the movement control finger
                         moveTouchStartPosition = touch.position;
                     }
-                    else if (touch.position.x > halfScreenWidth && rightFingerId == -1)
+                    else if (touch.position.x > _halfScreenWidth && _rightFingerId == -1)
                     {
                         // Start tracking the rightfinger if it was not previously being tracked
-                        rightFingerId = touch.fingerId;
+                        _rightFingerId = touch.fingerId;
                     }
 
                     break;
                 case TouchPhase.Ended:
                 case TouchPhase.Canceled:
 
-                    if (touch.fingerId == leftFingerId)
+                    if (touch.fingerId == _leftFingerId)
                     {
-                        leftFingerId = -1;
-                        Debug.Log("Stopped tracking left finger");
+                        _leftFingerId = -1;
+                        //Debug.Log("Stopped tracking left finger");
                     }
-                    else if (touch.fingerId == rightFingerId)
+                    else if (touch.fingerId == _rightFingerId)
                     {
-                        rightFingerId = -1;
-                        Debug.Log("Stopped tracking right finger");
+                        _rightFingerId = -1;
+                        //Debug.Log("Stopped tracking right finger");
                     }
 
                     break;
                 case TouchPhase.Moved:
 
                     // Get input for looking around
-                    if (touch.fingerId == rightFingerId)
+                    if (touch.fingerId == _rightFingerId)
                     {
                         lookInput = touch.deltaPosition * cameraSensitivity * Time.deltaTime;
                     }
-                    else if (touch.fingerId == leftFingerId)
+                    else if (touch.fingerId == _leftFingerId)
                     {
                         // calculating the position delta from the start position
                         moveInput = touch.position - moveTouchStartPosition;
@@ -111,7 +139,7 @@ public class FirstPersonController : MonoBehaviour
                     break;
                 case TouchPhase.Stationary:
                     // Set the look input to zero if the finger is still
-                    if (touch.fingerId == rightFingerId)
+                    if (touch.fingerId == _rightFingerId)
                     {
                         lookInput = Vector2.zero;
                     }
@@ -123,8 +151,8 @@ public class FirstPersonController : MonoBehaviour
     void LookAround()
     {
         // vertical (pitch) rotation
-        cameraPitch = Mathf.Clamp(cameraPitch - lookInput.y, -90f, 90f);
-        cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0, 0);
+        _cameraPitch = Mathf.Clamp(_cameraPitch - lookInput.y, -90f, 90f);
+        cameraTransform.localRotation = Quaternion.Euler(_cameraPitch, 0, 0);
 
         // horizontal (yaw) rotation
         transform.Rotate(transform.up, lookInput.x);
@@ -140,6 +168,14 @@ public class FirstPersonController : MonoBehaviour
 
         // Move relatively to the local transform's direction
         characterController.Move(transform.right * movementDirection.x + transform.forward * movementDirection.y);
+    }
+
+    public void Jump()
+    {
+        if (_isGrounded)
+        {
+            _verticalVelocity = JumpForce;
+        }
     }
 
 }

@@ -43,6 +43,7 @@ public class Weapon : MonoBehaviour
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
         MuzzleFlash.Play();
+        Debug.Log("I am shooting!");
     }
 
     public void PullTrigger()
