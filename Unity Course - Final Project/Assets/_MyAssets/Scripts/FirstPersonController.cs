@@ -7,8 +7,9 @@ public class FirstPersonController : MonoBehaviour
 
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private CameraBobbing _cameraBobbing;
 
-    [Header("Basic Movement")]
+    [Header("Movement & Look Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float cameraSensitivity;
     [SerializeField] private float moveInputDeadZone;
@@ -25,13 +26,18 @@ public class FirstPersonController : MonoBehaviour
     public LayerMask GroundLayers;
     private bool _isGrounded;
 
+    // Touch detaction
     private int _leftFingerId, _rightFingerId;
     private float _halfScreenWidth;
-    private float _cameraPitch;
 
+    // Camera control
+    private float _cameraPitch;
     private Vector2 lookInput;
+
+    // Player movement
     private Vector2 moveTouchStartPosition;
     private Vector2 moveInput;
+
 
 
     void Start()
@@ -63,6 +69,10 @@ public class FirstPersonController : MonoBehaviour
             // Only move if the left finger is being tracked
             //Debug.Log("Moving");
             Move();
+        }
+        else
+        {
+            _cameraBobbing.isWalking = false;
         }
     }
 
@@ -161,11 +171,16 @@ public class FirstPersonController : MonoBehaviour
     void Move()
     {
         // Don't move if the touch delta is shorter than the designated dead zone
-        if (moveInput.sqrMagnitude <= moveInputDeadZone) return;
+        if (moveInput.sqrMagnitude <= moveInputDeadZone)
+        {
+            _cameraBobbing.isWalking = false;
+            return;
+        }
+
+        _cameraBobbing.isWalking = true;
 
         // Multiply the normalized direction by the speed
         Vector2 movementDirection = moveInput.normalized * moveSpeed * Time.deltaTime;
-
         // Move relatively to the local transform's direction
         characterController.Move(transform.right * movementDirection.x + transform.forward * movementDirection.y);
     }
