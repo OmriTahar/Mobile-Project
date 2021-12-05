@@ -17,7 +17,7 @@ public class CameraBobbing : MonoBehaviour
 
     // State
     public bool isWalking;
-    private float _walkingTime;
+    public float _walkingTime;
     private Vector3 _targetCameraPosition;
 
     void Update()
