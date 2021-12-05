@@ -10,10 +10,15 @@ public class PlayerInteractionController : MonoBehaviour
     public float maxDistance = 5f;
     public LayerMask interactableLayers;
 
-    [Header("UI: adapt this to fit your game")]
+    [Header("UI Button")]
     public Button interactButton;
 
     private Interactable currentInteractable;
+
+    private void Start()
+    {
+        interactButton.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -21,10 +26,12 @@ public class PlayerInteractionController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, maxDistance, interactableLayers))
         {
             currentInteractable = hit.collider.GetComponent<Interactable>();
+            interactButton.gameObject.SetActive(true);
         }
         else
         {
             currentInteractable = null;
+            interactButton.gameObject.SetActive(false);
         }
 
         interactButton.interactable = currentInteractable != null;
