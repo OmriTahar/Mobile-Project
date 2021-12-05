@@ -6,7 +6,7 @@ public class Aiming : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
-    public string animatorParam = "aiming";
+    public string animatorParam = "Aiming";
 
     [Header("Camera")]
     public Camera camera;
@@ -20,6 +20,10 @@ public class Aiming : MonoBehaviour
     public MeshRenderer weaponRenderer;
     public GameObject scopeOverlay;
 
+    [Header("Buttons")]
+    public GameObject fireButton;
+    public GameObject aimingFireButton;
+
 
     private void Start()
     {
@@ -28,6 +32,8 @@ public class Aiming : MonoBehaviour
         {
             enableScope = false;
         }
+
+        aimingFireButton.SetActive(false);
     }
 
     public void OnAim(bool state)
@@ -58,11 +64,15 @@ public class Aiming : MonoBehaviour
             {
                 animator.SetFloat(animatorParam, blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, 1 - blendValue); // minus because we want to decrease FOV when aiming
+                fireButton.SetActive(false);
+                aimingFireButton.SetActive(true);
             }
             else
             {
                 animator.SetFloat(animatorParam, 1 - blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, blendValue);
+                fireButton.SetActive(true);
+                aimingFireButton.SetActive(false);
             }
 
             // Increase timer
