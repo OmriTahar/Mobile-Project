@@ -10,10 +10,10 @@ public class Aiming : MonoBehaviour
 
     [Header("Camera")]
     public Camera camera;
-    public float defaultPov, aimingPov;
+    public float defaultFOV, aimingFOV;
 
     [Header("General")]
-    public float aimSpeed = 0.2f;
+    public float aimDuration = 0.2f;
 
     [Header("Scope")]
     public bool enableScope;
@@ -21,13 +21,73 @@ public class Aiming : MonoBehaviour
     public GameObject scopeOverlay;
 
 
-    void Start()
+    private void Start()
     {
-        
+        // Prevent errors
+        if (!weaponRenderer || !scopeOverlay)
+        {
+            enableScope = false;
+        }
     }
 
-    void Update()
+    public void OnAim(bool state)
     {
-        
+        StopAllCoroutines();
+        StartCoroutine(Aim(state));
+    }
+
+    private IEnumerator Aim(bool isAiming)
+    {
+        float blendValue = 0;   // Progress of animation
+        float timeElapsed = 0;  // Time passed since animation started
+
+        // Show weapon model and hide scope UI
+        if (enableScope)
+        {
+            weaponRenderer.enabled = true;
+            scopeOverlay.SetActive(false);
+        }
+
+        while (timeElapsed < aimDuration)
+        {
+            // Calculate the transition's progress
+            blendValue = timeElapsed / aimDuration;
+
+            // Blend bewteen animations and calculate the camera's FOV
+            if (isAiming)
+            {
+                animator.SetFloat(animatorParam, blendValue);
+                camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, 1 - blendValue); // minus because we want to decrease FOV when aiming
+            }
+            else
+            {
+                animator.SetFloat(animatorParam, 1 - blendValue);
+                camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, blendValue);
+            }
+
+            // Increase timer
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // If scope is enabled, hide weapon model and show scope UI
+        if (enableScope)
+        {
+            weaponRenderer.enabled = !isAiming;
+            scopeOverlay.SetActive(isAiming);
+        }
+
+        // Confirm/Finalize changes
+        if (isAiming)
+        {
+            animator.SetFloat(animatorParam, 1);
+            camera.fieldOfView = aimingFOV;
+        }
+        else
+        {
+            animator.SetFloat(animatorParam, 0);
+            camera.fieldOfView = defaultFOV;
+        }
+
     }
 }
