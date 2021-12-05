@@ -8,7 +8,7 @@ public class CameraBobbing : MonoBehaviour
     [Header("Transform Refrences")]
     public Transform HeadTransform;
     public Transform CameraTransform;
-
+    
     [Header("Head Bobbing")]
     public float BobFrequency = 5f;
     public float BobHorizontalAmplitude = 0.1f;
