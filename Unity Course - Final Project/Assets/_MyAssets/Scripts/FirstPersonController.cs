@@ -15,10 +15,10 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float moveInputDeadZone;
 
     [Header("Gravity & Jumping")]
-    public float GravityWhenGrounded = 10; 
-    public float GravityInAir = 10;           
+    public float GravityWhenGrounded = 10;
+    public float GravityInAir = 10;
     public float JumpForce = 10;
-    private float _verticalVelocity;
+    private float _velocity;
 
     [Header("Ground Check")]
     public Transform GroundCheck;
@@ -39,10 +39,9 @@ public class FirstPersonController : MonoBehaviour
     private Vector2 moveInput;
 
 
-
     void Start()
     {
-        // id = -1 means the finger is not being tracked
+        // Id = -1 means the finger is not being tracked
         _leftFingerId = -1;
         _rightFingerId = -1;
 
@@ -57,38 +56,29 @@ public class FirstPersonController : MonoBehaviour
         ApplyGravity();
         GetTouchInput();
 
-        if (_rightFingerId != -1)
-        {
-            // Only look around if the right finger is being tracked
-            //Debug.Log("Rotating");
-            LookAround();
-        }
+        if (_rightFingerId != -1) // Only look around if the right finger is being tracked
+            LookAround(); 
 
-        if (_leftFingerId != -1)
-        {
-            // Only move if the left finger is being tracked
-            //Debug.Log("Moving");
+        if (_leftFingerId != -1) // Only move if the left finger is being tracked
             Move();
-        }
         else
-        {
             _cameraBobbing.isWalking = false;
-        }
     }
 
     private void FixedUpdate()
     {
-        _isGrounded = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers);
+        _isGrounded = (Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers));
     }
 
     void ApplyGravity()
     {
-        if (_isGrounded && _verticalVelocity <= 0)
-            _verticalVelocity = -GravityWhenGrounded * Time.deltaTime;
-        else
-            _verticalVelocity -= GravityInAir * Time.deltaTime;
 
-        Vector3 verticalMovement = transform.up * _verticalVelocity;
+        if (_isGrounded && _velocity <= 0)
+            _velocity = -GravityWhenGrounded * Time.deltaTime;
+        else
+            _velocity -= GravityInAir * Time.deltaTime;
+
+        Vector3 verticalMovement = transform.up * _velocity;
         characterController.Move(verticalMovement * Time.deltaTime);
     }
 
@@ -189,7 +179,7 @@ public class FirstPersonController : MonoBehaviour
     {
         if (_isGrounded)
         {
-            _verticalVelocity = JumpForce;
+            _velocity = JumpForce;
         }
     }
 
