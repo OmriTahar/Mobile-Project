@@ -1999,11 +1999,11 @@ MonoBehaviour:
   characterController: {fileID: 827682596}
   _cameraBobbing: {fileID: 827682598}
   moveSpeed: 8
-  cameraSensitivity: 5
+  cameraSensitivity: 8
   moveInputDeadZone: 20
   GravityWhenGrounded: 100
   GravityInAir: 10
-  JumpForce: 5
+  JumpForce: 3
   GroundCheck: {fileID: 235247994}
   GroudCheckRadius: 0.1
   GroundLayers:
