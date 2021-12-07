@@ -2376,7 +2376,7 @@ MonoBehaviour:
   characterController: {fileID: 827682596}
   _cameraBobbing: {fileID: 827682598}
   moveSpeed: 8
-  cameraSensitivity: 8
+  cameraSensitivity: 12
   moveInputDeadZone: 20
   GravityWhenGrounded: 350
   GravityInAir: 15
@@ -2438,8 +2438,8 @@ MonoBehaviour:
   HeadTransform: {fileID: 1735442209}
   CameraTransform: {fileID: 1551030897}
   BobFrequency: 5
-  BobHorizontalAmplitude: 0.2
-  BobVerticalAmplitude: 0.2
+  BobHorizontalAmplitude: 0.1
+  BobVerticalAmplitude: 0.1
   HeadBobSmoothing: 0.2
   isWalking: 0
 --- !u!114 &827682599
