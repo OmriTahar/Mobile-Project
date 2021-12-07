@@ -21,8 +21,11 @@ public class Aiming : MonoBehaviour
     public GameObject scopeOverlay;
 
     [Header("Buttons")]
-    public GameObject fireButton;
+    //public GameObject fireButton;
     public GameObject aimingFireButton;
+
+    [Header("Player")]
+    public FirstPersonController Player;
 
 
     private void Start()
@@ -64,14 +67,15 @@ public class Aiming : MonoBehaviour
             {
                 animator.SetFloat(animatorParam, blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, 1 - blendValue); // minus because we want to decrease FOV when aiming
-                fireButton.SetActive(false);
+                //fireButton.SetActive(false);
                 aimingFireButton.SetActive(true);
+                
             }
             else
             {
                 animator.SetFloat(animatorParam, 1 - blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, blendValue);
-                fireButton.SetActive(true);
+                //fireButton.SetActive(true);
                 aimingFireButton.SetActive(false);
             }
 
@@ -92,11 +96,13 @@ public class Aiming : MonoBehaviour
         {
             animator.SetFloat(animatorParam, 1);
             camera.fieldOfView = aimingFOV;
+            Player.IsAiming = true;
         }
         else
         {
             animator.SetFloat(animatorParam, 0);
             camera.fieldOfView = defaultFOV;
+            Player.IsAiming = false;
         }
 
     }

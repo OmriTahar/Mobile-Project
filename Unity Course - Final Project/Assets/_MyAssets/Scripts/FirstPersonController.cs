@@ -26,6 +26,9 @@ public class FirstPersonController : MonoBehaviour
     public LayerMask GroundLayers;
     private bool _isGrounded;
 
+    [Header("Other Checks")]
+    public bool IsAiming;
+
     // Touch detaction
     private int _leftFingerId, _rightFingerId;
     private float _halfScreenWidth;
@@ -59,7 +62,7 @@ public class FirstPersonController : MonoBehaviour
         if (_rightFingerId != -1) // Only look around if the right finger is being tracked
             LookAround(); 
 
-        if (_leftFingerId != -1) // Only move if the left finger is being tracked
+        if (_leftFingerId != -1 && !IsAiming) // Only move if the left finger is being tracked
             Move();
         else
             _cameraBobbing.isWalking = false;

@@ -8,17 +8,51 @@ public class ActivateUITrigger : MonoBehaviour
 {
     public Image Image;
     public TextMeshProUGUI Text;
+    public TextMeshProUGUI Text2;
+    public GameObject triggerToActivate;
 
     private void OnTriggerEnter(Collider other)
     {
-        Image.gameObject.SetActive(true);
-        Text.gameObject.SetActive(true);
+
+        if (Image != null)
+        {
+            Image.gameObject.SetActive(true);
+        }
+
+        if (Text != null)
+        {
+            Text.gameObject.SetActive(true);
+        }
+
+        if (Text2 != null)
+        {
+            Text2.gameObject.SetActive(true);
+        }
+
+        if (triggerToActivate != null)
+        {
+            triggerToActivate.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Image.gameObject.SetActive(false);
-        Text.gameObject.SetActive(false);
+
+        if (Image != null)
+        {
+            Image.gameObject.SetActive(false);
+        }
+
+        if (Text != null)
+        {
+            Text.gameObject.SetActive(false);
+        }
+
+        if (Text2 != null)
+        {
+            Text2.gameObject.SetActive(false);
+        }
+
         Destroy(gameObject);
     }
 
