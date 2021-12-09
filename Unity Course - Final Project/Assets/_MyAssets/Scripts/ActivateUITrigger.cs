@@ -9,7 +9,8 @@ public class ActivateUITrigger : MonoBehaviour
     public Image Image;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI Text2;
-    public GameObject triggerToActivate;
+    public GameObject TriggerToActivate;
+    public FirstPersonController Player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,14 +25,29 @@ public class ActivateUITrigger : MonoBehaviour
             Text.gameObject.SetActive(true);
         }
 
-        if (Text2 != null)
+        if (TriggerToActivate != null)
         {
-            Text2.gameObject.SetActive(true);
+            TriggerToActivate.SetActive(true);
         }
 
-        if (triggerToActivate != null)
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (gameObject.name == "Aim Trigger Object")
         {
-            triggerToActivate.SetActive(true);
+            if (Player != null && Player.IsAiming)
+            {
+                Image.gameObject.SetActive(false);
+                Text.gameObject.SetActive(false);
+                Text2.gameObject.SetActive(true);
+            }
+            else
+            {
+                Image.gameObject.SetActive(true);
+                Text.gameObject.SetActive(true);
+                Text2.gameObject.SetActive(false);
+            }
         }
     }
 

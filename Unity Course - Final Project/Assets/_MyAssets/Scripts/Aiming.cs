@@ -43,6 +43,7 @@ public class Aiming : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(Aim(state));
+
     }
 
     private IEnumerator Aim(bool isAiming)

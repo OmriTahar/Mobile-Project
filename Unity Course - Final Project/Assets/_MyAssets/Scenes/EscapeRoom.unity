@@ -1079,7 +1079,8 @@ MonoBehaviour:
   Image: {fileID: 1383513167}
   Text: {fileID: 1328990061}
   Text2: {fileID: 0}
-  triggerToActivate: {fileID: 0}
+  TriggerToActivate: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &412715767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 33.4, y: -170.1}
+  m_AnchoredPosition: {x: 124.3, y: -74.827}
   m_SizeDelta: {x: 205.9765, y: 50.3462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &871366284
@@ -2945,7 +2946,7 @@ GameObject:
   - component: {fileID: 1019574311}
   - component: {fileID: 1019574310}
   m_Layer: 0
-  m_Name: Shoot Trigger Object
+  m_Name: Aim Trigger Object
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2979,8 +2980,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Image: {fileID: 1514176657}
   Text: {fileID: 1346742276}
-  Text2: {fileID: 0}
-  triggerToActivate: {fileID: 0}
+  Text2: {fileID: 1989361502}
+  TriggerToActivate: {fileID: 0}
+  Player: {fileID: 827682595}
 --- !u!65 &1019574311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8075,7 +8077,8 @@ MonoBehaviour:
   Image: {fileID: 686362163}
   Text: {fileID: 1190626239}
   Text2: {fileID: 0}
-  triggerToActivate: {fileID: 0}
+  TriggerToActivate: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!65 &1053954666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12187,7 +12190,8 @@ MonoBehaviour:
   Image: {fileID: 0}
   Text: {fileID: 868508113}
   Text2: {fileID: 0}
-  triggerToActivate: {fileID: 1019574308}
+  TriggerToActivate: {fileID: 1019574308}
+  Player: {fileID: 0}
 --- !u!65 &1813681458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15118,7 +15122,8 @@ MonoBehaviour:
   Image: {fileID: 593000404}
   Text: {fileID: 1562196908}
   Text2: {fileID: 0}
-  triggerToActivate: {fileID: 0}
+  TriggerToActivate: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!65 &2097660298
 BoxCollider:
   m_ObjectHideFlags: 0
