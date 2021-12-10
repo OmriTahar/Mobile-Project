@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInteractionController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerInteractionController : MonoBehaviour
     [Header("Interaction Settings")]
     public float maxDistance = 5f;
     public LayerMask interactableLayers;
+    public TextMeshProUGUI text;
 
     [Header("UI Button")]
     public Button interactButton;
@@ -27,11 +29,13 @@ public class PlayerInteractionController : MonoBehaviour
         {
             currentInteractable = hit.collider.GetComponent<Interactable>();
             interactButton.gameObject.SetActive(true);
+            text.gameObject.SetActive(true);
         }
         else
         {
             currentInteractable = null;
             interactButton.gameObject.SetActive(false);
+            text.gameObject.SetActive(false);
         }
 
         interactButton.interactable = currentInteractable != null;
