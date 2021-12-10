@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 104876131}
   - component: {fileID: 104876130}
   - component: {fileID: 104876129}
+  - component: {fileID: 104876132}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -444,6 +445,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104876127}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &104876132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104876127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0ca83b18ebfdb46ad03eaa1812cac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMaterial: {fileID: 2100000, guid: 1af090307086d7349b1ac302fd74dfed, type: 2}
 --- !u!1 &172063606
 GameObject:
   m_ObjectHideFlags: 0
