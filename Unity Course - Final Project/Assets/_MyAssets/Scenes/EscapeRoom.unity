@@ -2284,7 +2284,6 @@ MonoBehaviour:
   Camera: {fileID: 1551030897}
   FirePoint: {fileID: 765887217}
   MuzzleFlash: {fileID: 1042947405}
-  animator: {fileID: 1551030898}
   _isShooting: 0
   _bulletSpeed: 100
 --- !u!114 &827682598
@@ -2612,7 +2611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap to INTERACT
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12137,9 +12136,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793782527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c658b197fa06d3478642f1e9c80666f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fa56cc1bc29bf74faf4d4ccf7f551be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunOnTable: {fileID: 194212237}
+  PlayerGun: {fileID: 4054839983551906558}
 --- !u!1 &1813681455
 GameObject:
   m_ObjectHideFlags: 0
