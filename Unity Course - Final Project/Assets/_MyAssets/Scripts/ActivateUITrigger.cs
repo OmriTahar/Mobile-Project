@@ -14,22 +14,23 @@ public class ActivateUITrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (Image != null)
+        if (other.gameObject.layer != 9)
         {
-            Image.gameObject.SetActive(true);
-        }
+            if (Image != null)
+            {
+                Image.gameObject.SetActive(true);
+            }
 
-        if (Text != null)
-        {
-            Text.gameObject.SetActive(true);
-        }
+            if (Text != null)
+            {
+                Text.gameObject.SetActive(true);
+            }
 
-        if (TriggerToActivate != null)
-        {
-            TriggerToActivate.SetActive(true);
+            if (TriggerToActivate != null)
+            {
+                TriggerToActivate.SetActive(true);
+            }
         }
-
     }
 
     private void OnTriggerStay(Collider other)

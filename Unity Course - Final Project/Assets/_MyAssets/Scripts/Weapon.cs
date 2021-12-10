@@ -9,12 +9,12 @@ public class Weapon : MonoBehaviour
     public Transform FirePoint;
     public ParticleSystem MuzzleFlash;
 
-    BulletPool _bulletPool;
-
     [SerializeField] private bool _isShooting;
     [SerializeField] private float _bulletSpeed = 10;
-    [SerializeField] private float _fireDelay;
-    [SerializeField] private float _fireTimer;
+    BulletPool _bulletPool;
+
+    //[SerializeField] private float _fireDelay;
+    //[SerializeField] private float _fireTimer;
 
 
     void Start()
@@ -48,17 +48,20 @@ public class Weapon : MonoBehaviour
 
     public void PullTrigger()
     {
+
+        _isShooting = true;
+        Shoot();
         // Automate
         //if (_fireDelay > 0)
-        _isShooting = true;
         //else
-        Shoot();
     }
 
     public void ReleaseTrigger()
     {
         _isShooting = false;
-        
+
         //_fireTimer = 0f;
     }
+
+    
 }

@@ -2284,10 +2284,9 @@ MonoBehaviour:
   Camera: {fileID: 1551030897}
   FirePoint: {fileID: 765887217}
   MuzzleFlash: {fileID: 1042947405}
+  animator: {fileID: 1551030898}
   _isShooting: 0
   _bulletSpeed: 100
-  _fireDelay: -1
-  _fireTimer: 0
 --- !u!114 &827682598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8168,18 +8167,6 @@ MonoBehaviour:
         - m_Target: {fileID: 827682597}
           m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
           m_MethodName: PullTrigger
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-          m_MethodName: Shoot
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
