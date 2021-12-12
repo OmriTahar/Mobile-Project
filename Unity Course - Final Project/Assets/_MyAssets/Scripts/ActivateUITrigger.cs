@@ -30,6 +30,8 @@ public class ActivateUITrigger : MonoBehaviour
             {
                 TriggerToActivate.SetActive(true);
             }
+
+            Invoke("EndUITrigger", 5f);
         }
     }
 
@@ -50,6 +52,26 @@ public class ActivateUITrigger : MonoBehaviour
                 Text2.gameObject.SetActive(false);
             }
         }
+    }
+
+    void EndUITrigger()
+    {
+        if (Image != null)
+        {
+            Image.gameObject.SetActive(false);
+        }
+
+        if (Text != null)
+        {
+            Text.gameObject.SetActive(false);
+        }
+
+        if (Text2 != null)
+        {
+            Text2.gameObject.SetActive(false);
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit(Collider other)

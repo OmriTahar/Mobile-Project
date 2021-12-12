@@ -5,16 +5,18 @@ using UnityEngine;
 public class FirstDoor : Interactable
 {
 
-    Animator animator;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    public Animator animator;
+    public GameObject StandByPhase;
+    public GameObject OnPhase;
+    public GameObject TriggerToActivate;
 
     public override void OnInteraction()
     {
+        StandByPhase.SetActive(false);
+        OnPhase.SetActive(true);
         animator.SetBool("Start", true);
+        gameObject.layer = 0;
+        TriggerToActivate.SetActive(true);
     }
 
 }
