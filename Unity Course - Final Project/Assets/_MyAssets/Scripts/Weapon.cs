@@ -5,6 +5,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    [Header("Animator")]
+    public Animator animator;
+    public string animatorParam = "Shoot";
+
     public Transform Camera;
     public Transform FirePoint;
     public ParticleSystem MuzzleFlash;
@@ -44,6 +48,8 @@ public class Weapon : MonoBehaviour
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
         MuzzleFlash.Play();
         Debug.Log("I am shooting!");
+        animator.SetTrigger(animatorParam);
+
     }
 
     public void PullTrigger()

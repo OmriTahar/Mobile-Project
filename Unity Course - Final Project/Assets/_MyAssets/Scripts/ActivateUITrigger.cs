@@ -12,6 +12,8 @@ public class ActivateUITrigger : MonoBehaviour
     public GameObject TriggerToActivate;
     public FirstPersonController Player;
 
+    public float DisableTime = 5f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 9)
@@ -31,7 +33,7 @@ public class ActivateUITrigger : MonoBehaviour
                 TriggerToActivate.SetActive(true);
             }
 
-            Invoke("EndUITrigger", 5f);
+            Invoke("EndUITrigger", DisableTime);
         }
     }
 

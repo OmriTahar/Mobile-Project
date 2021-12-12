@@ -17,6 +17,7 @@ public class FirstDoor : Interactable
         animator.SetBool("Start", true);
         gameObject.layer = 0;
         TriggerToActivate.SetActive(true);
+        Debug.Log("Pressed Door Key!");
     }
 
 }
