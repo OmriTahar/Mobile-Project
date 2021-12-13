@@ -31,7 +31,10 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("A bullet hit something");
+        if (other.gameObject.layer == 8)
+        {
+            Debug.Log("Trigger Activated!");
+        }
         Deactivate();
     }
 }

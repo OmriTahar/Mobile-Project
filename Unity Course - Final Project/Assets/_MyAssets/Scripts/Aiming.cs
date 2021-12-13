@@ -6,7 +6,7 @@ public class Aiming : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
-    public string animatorParam = "Aiming";
+    public string animatorParam = "IsAiming";
 
     [Header("Camera")]
     public Camera camera;
@@ -21,8 +21,11 @@ public class Aiming : MonoBehaviour
     public GameObject scopeOverlay;
 
     [Header("Buttons")]
-    public GameObject fireButton;
+    //public GameObject fireButton;
     public GameObject aimingFireButton;
+
+    [Header("Player")]
+    public FirstPersonController Player;
 
 
     private void Start()
@@ -40,6 +43,7 @@ public class Aiming : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(Aim(state));
+
     }
 
     private IEnumerator Aim(bool isAiming)
@@ -62,16 +66,17 @@ public class Aiming : MonoBehaviour
             // Blend bewteen animations and calculate the camera's FOV
             if (isAiming)
             {
-                animator.SetFloat(animatorParam, blendValue);
+                //animator.SetFloat(animatorParam, blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, 1 - blendValue); // minus because we want to decrease FOV when aiming
-                fireButton.SetActive(false);
+                //fireButton.SetActive(false);
                 aimingFireButton.SetActive(true);
+                
             }
             else
             {
-                animator.SetFloat(animatorParam, 1 - blendValue);
+                //animator.SetFloat(animatorParam, 1 - blendValue);
                 camera.fieldOfView = Mathf.Lerp(aimingFOV, defaultFOV, blendValue);
-                fireButton.SetActive(true);
+                //fireButton.SetActive(true);
                 aimingFireButton.SetActive(false);
             }
 
@@ -90,13 +95,17 @@ public class Aiming : MonoBehaviour
         // Confirm/Finalize changes
         if (isAiming)
         {
-            animator.SetFloat(animatorParam, 1);
+            //animator.SetFloat(animatorParam, 1);
+            animator.SetBool(animatorParam,true);
             camera.fieldOfView = aimingFOV;
+            Player.IsAiming = true;
         }
         else
         {
-            animator.SetFloat(animatorParam, 0);
+            //animator.SetFloat(animatorParam, 0);
+            animator.SetBool(animatorParam, false);
             camera.fieldOfView = defaultFOV;
+            Player.IsAiming = false;
         }
 
     }
