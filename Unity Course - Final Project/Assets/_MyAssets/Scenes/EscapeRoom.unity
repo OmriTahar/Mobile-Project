@@ -555,6 +555,8 @@ MonoBehaviour:
   StandbyMat: {fileID: 2100000, guid: 6163d1ab76b6939459e6adc52597ddec, type: 2}
   OnMat: {fileID: 2100000, guid: 5b7e400e63c323649957b070ecf8fe97, type: 2}
   isTriggered: 0
+  isCounted: 0
+  TriggerToTurnOff: {fileID: 0}
   DoorAccessOff: {fileID: 292441041}
   DoorAccessStandBy: {fileID: 449416041}
 --- !u!1 &172063606
@@ -711,6 +713,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1548836757}
+    - target: {fileID: 7989544401796259256, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7989544402092142548, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -759,6 +765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Access 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7989544402092142569, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7989544402233853093, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -794,6 +804,7 @@ MonoBehaviour:
   TargetList:
   - {fileID: 104876132}
   triggerCounter: 0
+  isAllTriggered: 0
 --- !u!1 &202143317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &539793586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2482,7 +2493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827682590}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 51.09, y: 1.5, z: 34.39}
+  m_LocalPosition: {x: 1.25, y: 1.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735442209}
@@ -2505,7 +2516,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1735442209}
   characterController: {fileID: 827682596}
   _cameraBobbing: {fileID: 827682598}
-  isAllowedToWalk: 0
+  isAllowedToWalk: 1
   moveSpeed: 8
   cameraSensitivity: 7
   moveInputDeadZone: 20
@@ -3415,9 +3426,9 @@ MonoBehaviour:
   Text: {fileID: 1346742276}
   Text2: {fileID: 1989361502}
   TriggerToActivate: {fileID: 0}
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 827682595}
   PlayerInteraction: {fileID: 0}
-  hasDisableTime: 1
+  hasDisableTime: 0
   DisableTime: 5
 --- !u!65 &1019574311
 BoxCollider:
@@ -11120,7 +11131,6 @@ GameObject:
   - component: {fileID: 1551030895}
   - component: {fileID: 1551030898}
   - component: {fileID: 1551030899}
-  - component: {fileID: 1551030900}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -11232,19 +11242,6 @@ MonoBehaviour:
   text: {fileID: 868508113}
   interactButton: {fileID: 1466167499}
   isAbleToInteract: 0
---- !u!114 &1551030900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551030894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a0b43a3ab31594b8335e90c536bb7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 827682597}
 --- !u!1 &1559301983
 GameObject:
   m_ObjectHideFlags: 0
@@ -15869,7 +15866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4054910046196042080
 GameObject:
   m_ObjectHideFlags: 0
@@ -19577,7 +19574,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 49f741fd7e3673e45bd2dad7c2a6bd8b, type: 2}
     - target: {fileID: 7853669804945945022, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7853669804945945022, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
       propertyPath: m_Controller
@@ -19722,6 +19719,10 @@ PrefabInstance:
     - target: {fileID: 7989544402092142568, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_Name
       value: Door Access
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989544402092142569, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}

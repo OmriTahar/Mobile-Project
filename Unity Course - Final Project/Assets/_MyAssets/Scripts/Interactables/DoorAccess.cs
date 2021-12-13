@@ -14,11 +14,11 @@ public class DoorAccess : Interactable
 
     private void Start()
     {
-        if (OffPhase)
+        if (OffPhase.activeInHierarchy)
         {
             gameObject.layer = 0;
         }
-        else if (StandByPhase)
+        else if (StandByPhase.activeInHierarchy)
         {
             gameObject.layer = 7;
         }

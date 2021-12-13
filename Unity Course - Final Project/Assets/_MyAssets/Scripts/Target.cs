@@ -9,15 +9,16 @@ public class Target : MonoBehaviour
 
     public Material StandbyMat;
     public Material OnMat;
-    public bool isTriggered;
+    public bool isTriggered = false;
+    public bool isCounted = false;
 
+    public GameObject TriggerToTurnOff;
     public GameObject DoorAccessOff;
     public GameObject DoorAccessStandBy;
 
     private void Start()
     {
         myRenderer = GetComponent<Renderer>();
-
     }
 
     public void ChangeToStandby()
@@ -42,6 +43,11 @@ public class Target : MonoBehaviour
             {
                 DoorAccessOff.SetActive(false);
                 DoorAccessStandBy.SetActive(true);
+            }
+
+            if (TriggerToTurnOff != null)
+            {
+                Destroy(TriggerToTurnOff);
             }
         }
     }
