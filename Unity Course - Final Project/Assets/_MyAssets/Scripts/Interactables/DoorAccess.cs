@@ -5,12 +5,14 @@ using UnityEngine;
 public class DoorAccess : Interactable
 {
 
-    public Animator animator;
 
-    public GameObject OffPhase;
-    public GameObject StandByPhase;
+    [Header("Access States")]
     public GameObject OnPhase;
+    public GameObject StandByPhase;
+    public GameObject OffPhase;
 
+    [Header("References")]
+    public Animator animator;
     public GameObject TriggerToActivate;
     public FirstPersonController Player;
 
