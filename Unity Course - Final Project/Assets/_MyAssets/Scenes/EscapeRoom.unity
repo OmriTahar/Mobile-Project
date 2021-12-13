@@ -2516,9 +2516,9 @@ MonoBehaviour:
   cameraTransform: {fileID: 1735442209}
   characterController: {fileID: 827682596}
   _cameraBobbing: {fileID: 827682598}
-  isAllowedToWalk: 1
+  isAllowedToWalk: 0
   moveSpeed: 8
-  cameraSensitivity: 7
+  cameraSensitivity: 15
   moveInputDeadZone: 20
   GravityWhenGrounded: 350
   GravityInAir: 15
