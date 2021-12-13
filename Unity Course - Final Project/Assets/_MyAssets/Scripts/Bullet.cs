@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             Debug.Log("Trigger Activated!");
+            Deactivate();
         }
-        Deactivate();
     }
 }

@@ -99,4 +99,9 @@ public class ActivateUITrigger : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        EndUITrigger();
+    }
 }

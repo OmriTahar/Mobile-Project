@@ -12267,7 +12267,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1019574309
 Transform:
   m_ObjectHideFlags: 0
@@ -45206,14 +45206,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9009737437798938068, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: DoorAccessOff
       value: 
       objectReference: {fileID: 292441041}
+    - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
+      propertyPath: TriggerToTurnOff
+      value: 
+      objectReference: {fileID: 1019574308}
     - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: DoorAccessStandBy
       value: 
