@@ -8686,7 +8686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115616168}
   m_Layer: 0
-  m_Name: Beat 1
+  m_Name: Sequence 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9241,7 +9241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1228988897}
   m_Layer: 0
-  m_Name: Beat 2
+  m_Name: Sequence 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9504,7 +9504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328543212}
   m_Layer: 0
-  m_Name: Beat 3
+  m_Name: Sequence 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
