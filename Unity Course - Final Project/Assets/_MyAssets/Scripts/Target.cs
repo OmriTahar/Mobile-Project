@@ -4,14 +4,45 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public Material myMaterial;
+
+    private Renderer myRenderer;
+
+    public Material StandbyMat;
+    public Material OnMat;
+    public bool isTriggered;
+
+    public GameObject DoorAccessOff;
+    public GameObject DoorAccessStandBy;
+
+    private void Start()
+    {
+        myRenderer = GetComponent<Renderer>();
+
+    }
+
+    public void ChangeToStandby()
+    {
+        myRenderer.material = StandbyMat;
+    }
+
+    public void ChangeToOn()
+    {
+        myRenderer.material = OnMat;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
-            myMaterial.color = Color.green;
-            Debug.Log("Chaning to green!");
+            isTriggered = true;
+            
+            ChangeToStandby();
+
+            if (DoorAccessOff != null)
+            {
+                DoorAccessOff.SetActive(false);
+                DoorAccessStandBy.SetActive(true);
+            }
         }
     }
 }

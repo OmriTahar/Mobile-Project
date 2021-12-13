@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7989544401796259236}
   - component: {fileID: 7989544401796259259}
   - component: {fileID: 7989544401796259258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,8 @@ GameObject:
   - component: {fileID: 7989544402092142571}
   - component: {fileID: 7989544402092142570}
   - component: {fileID: 7989544402092142569}
-  m_Layer: 0
+  - component: {fileID: 779631453}
+  m_Layer: 7
   m_Name: Door Access
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,8 +192,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 10, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &779631453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989544402092142568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607e8ee928ac84848a7b8bf98bbdb587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  StandByPhase: {fileID: 7989544402233853093}
+  OnPhase: {fileID: 7989544401796259256}
+  TriggerToActivate: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &7989544402233853093
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +223,7 @@ GameObject:
   - component: {fileID: 7989544402233853089}
   - component: {fileID: 7989544402233853088}
   - component: {fileID: 7989544402233853095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Standby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +318,7 @@ GameObject:
   - component: {fileID: 7989544402810523080}
   - component: {fileID: 7989544402810523087}
   - component: {fileID: 7989544402810523086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}

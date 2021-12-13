@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShootDelay : MonoBehaviour
+{
+
+    public Weapon Player;
+
+    public void CanShootFunc()
+    {
+        Player.CanShoot = true;
+    }
+}
