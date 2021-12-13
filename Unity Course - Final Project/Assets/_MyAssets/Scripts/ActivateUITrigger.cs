@@ -9,6 +9,7 @@ public class ActivateUITrigger : MonoBehaviour
     public Image Image;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI Text2;
+
     public GameObject TriggerToActivate;
     public FirstPersonController PlayerController;
     public PlayerInteractionController PlayerInteraction;
@@ -56,6 +57,7 @@ public class ActivateUITrigger : MonoBehaviour
     {
         if (other.gameObject.layer != 9)
         {
+            
             if (Image != null)
             {
                 Image.gameObject.SetActive(true);
