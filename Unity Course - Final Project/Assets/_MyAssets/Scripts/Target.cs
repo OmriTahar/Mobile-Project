@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
 
     private Renderer myRenderer;
 
+    public ParticleSystem HitEffect;
     public Material StandbyMat;
     public Material OnMat;
     public bool isTriggered = false;
@@ -35,6 +36,7 @@ public class Target : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
+            HitEffect.Play();
             isTriggered = true;
             
             ChangeToStandby();
