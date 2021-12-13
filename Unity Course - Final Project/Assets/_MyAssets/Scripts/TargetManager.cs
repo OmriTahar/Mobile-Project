@@ -9,6 +9,8 @@ public class TargetManager : MonoBehaviour
     public int triggerCounter = 0;
     public bool isAllTriggered = false;
 
+    public GameObject DoorAccessOff;
+    public GameObject DoorAccessStandBy;
 
     void Update()
     {
@@ -33,6 +35,12 @@ public class TargetManager : MonoBehaviour
                     gameObject.layer = 7;
                 }
             }
+        }
+
+        if (isAllTriggered)
+        {
+            DoorAccessOff.SetActive(false);
+            DoorAccessStandBy.SetActive(true);
         }
     }
 

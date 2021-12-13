@@ -14,8 +14,6 @@ public class Target : MonoBehaviour
     public bool isCounted = false;
 
     public GameObject TriggerToTurnOff;
-    public GameObject DoorAccessOff;
-    public GameObject DoorAccessStandBy;
 
     private void Start()
     {
@@ -40,12 +38,6 @@ public class Target : MonoBehaviour
             isTriggered = true;
             
             ChangeToStandby();
-
-            if (DoorAccessOff != null)
-            {
-                DoorAccessOff.SetActive(false);
-                DoorAccessStandBy.SetActive(true);
-            }
 
             if (TriggerToTurnOff != null)
             {

@@ -6,9 +6,11 @@ public class DoorAccess : Interactable
 {
 
     public Animator animator;
+
     public GameObject OffPhase;
     public GameObject StandByPhase;
     public GameObject OnPhase;
+
     public GameObject TriggerToActivate;
     public FirstPersonController Player;
 
@@ -27,8 +29,10 @@ public class DoorAccess : Interactable
     public override void OnInteraction()
     {
         gameObject.layer = 0;
+
         StandByPhase.SetActive(false);
         OnPhase.SetActive(true);
+
         animator.SetBool("Start", true);
 
         if (TriggerToActivate != null)
