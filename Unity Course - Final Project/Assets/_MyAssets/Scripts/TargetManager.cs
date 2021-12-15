@@ -5,12 +5,12 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
 
+    [Header("Targets")]
     public List<Target> TargetList = new List<Target>();
     public int triggerCounter = 0;
     public bool isAllTriggered = false;
-
-    public GameObject DoorAccessOff;
-    public GameObject DoorAccessStandBy;
+    [Header("Door Access")]
+    public DoorAccess DoorAccess;
 
     void Update()
     {
@@ -37,11 +37,15 @@ public class TargetManager : MonoBehaviour
             }
         }
 
-        if (isAllTriggered)
+        if (isAllTriggered && !DoorAccess.isAccessedDoor)
         {
-            DoorAccessOff.SetActive(false);
-            DoorAccessStandBy.SetActive(true);
+            DoorAccess.ChangeState(DoorAccess.OffPhase, DoorAccess.StandByPhase);
         }
+        else if (isAllTriggered && !DoorAccess.isAccessedDoor)
+        {
+            DoorAccess.ChangeState(DoorAccess.StandByPhase, DoorAccess.OnPhase);
+        }
+
     }
 
 }

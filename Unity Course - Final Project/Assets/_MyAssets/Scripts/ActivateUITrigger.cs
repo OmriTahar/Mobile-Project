@@ -6,18 +6,16 @@ using TMPro;
 
 public class ActivateUITrigger : MonoBehaviour
 {
+    [Header("UI References")]
     public Image Image;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI Text2;
 
+    [Header("Other References")]
     public GameObject TriggerToActivate;
     public FirstPersonController PlayerController;
     public PlayerInteractionController PlayerInteraction;
 
-    public bool hasDisableTime = true;
-    public float DisableTime = 5f;
-
-   
     private void OnTriggerEnter(Collider other)
     {
         StartUITrigger(other);
@@ -41,7 +39,7 @@ public class ActivateUITrigger : MonoBehaviour
             }
         }
 
-        if (PlayerInteraction != null && PlayerInteraction.isAbleToInteract)
+        if (PlayerInteraction != null && PlayerInteraction.isAbleToInteract) // Don't remember :(
         {
             Debug.Log("15 works");
             EndUITrigger();
@@ -73,10 +71,6 @@ public class ActivateUITrigger : MonoBehaviour
                 TriggerToActivate.SetActive(true);
             }
 
-            if (hasDisableTime)
-            {
-                Invoke("EndUITrigger", DisableTime);
-            }
         }
     }
 

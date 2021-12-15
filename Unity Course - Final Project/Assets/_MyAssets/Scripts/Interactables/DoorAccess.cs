@@ -6,13 +6,14 @@ public class DoorAccess : Interactable
 {
 
 
-    [Header("Access States")]
+    [Header("Door Access States")]
+    public bool isAccessedDoor = false;
     public GameObject OnPhase;
     public GameObject StandByPhase;
     public GameObject OffPhase;
 
     [Header("References")]
-    public Animator animator;
+    public Animator Animator;
     public GameObject TriggerToActivate;
     public FirstPersonController Player;
 
@@ -30,12 +31,10 @@ public class DoorAccess : Interactable
 
     public override void OnInteraction()
     {
+        isAccessedDoor = true;
         gameObject.layer = 0;
-
-        StandByPhase.SetActive(false);
-        OnPhase.SetActive(true);
-
-        animator.SetBool("Start", true);
+        ChangeState(StandByPhase, OnPhase);
+        Animator.SetBool("Start", true);
 
         if (TriggerToActivate != null)
         {
@@ -46,8 +45,12 @@ public class DoorAccess : Interactable
         {
             Player.isAllowedToWalk = true;
         }
+    }
 
-        Debug.Log("Pressed Door Key!");
+    public void ChangeState(GameObject currentState, GameObject newState)
+    {
+        currentState.SetActive(false);
+        newState.SetActive(true);
     }
 
 }
