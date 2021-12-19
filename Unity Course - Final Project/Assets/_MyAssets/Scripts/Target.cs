@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 9 && gameObject.layer == 8)
         {
             HitEffect.Play();
             isTriggered = true;
@@ -43,6 +43,8 @@ public class Target : MonoBehaviour
             {
                 Destroy(TriggerToTurnOff);
             }
+
+            gameObject.layer = 0;
         }
     }
 }
