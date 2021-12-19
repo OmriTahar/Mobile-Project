@@ -7,9 +7,11 @@ public class Target : MonoBehaviour
 
     private Renderer myRenderer;
 
+    [Header("References")]
     public ParticleSystem HitEffect;
     public Material StandbyMat;
     public Material OnMat;
+    [Header("Information")]
     public bool isTriggered = false;
     public bool isCounted = false;
 

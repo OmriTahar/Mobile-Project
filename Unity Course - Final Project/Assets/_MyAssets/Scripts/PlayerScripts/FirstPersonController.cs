@@ -23,9 +23,9 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform GroundCheck;
-    public float GroudCheckRadius;
     public LayerMask GroundLayers;
-    private bool _isGrounded;
+    public float GroudCheckRadius;
+    public bool _isGrounded;
 
     [Header("Other Checks")]
     public bool IsAiming;
@@ -71,12 +71,11 @@ public class FirstPersonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _isGrounded = (Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers));
+        _isGrounded = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers);
     }
 
     void ApplyGravity()
     {
-
         if (_isGrounded && _velocity <= 0)
             _velocity = -GravityWhenGrounded * Time.deltaTime;
         else
