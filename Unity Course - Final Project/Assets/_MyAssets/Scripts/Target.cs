@@ -31,6 +31,10 @@ public class Target : MonoBehaviour
     {
         myRenderer.material = OnMat;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
