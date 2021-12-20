@@ -1000,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9009737437798938068, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: m_Name
-      value: TargetEffect 2
+      value: TargetEffect 4
       objectReference: {fileID: 0}
     - target: {fileID: 9009737438125635792, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: m_Name
@@ -11637,7 +11637,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893331403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 76d682299a2064e48a6dd3f132e036f4, type: 2}
   m_CullingMode: 0
