@@ -29,12 +29,12 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 8)
-        {
-            Debug.Log("Trigger Activated!");
-            Deactivate();
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.layer == 8)
+    //    {
+    //        Debug.Log("Trigger Activated!");
+    //        Deactivate();
+    //    }
+    //}
 }

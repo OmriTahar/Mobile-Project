@@ -33,16 +33,11 @@ public class Target : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 9 && gameObject.layer == 8)
+        if (collision.gameObject.layer == 9 && gameObject.layer == 8)
         {
             HitEffect.Play();
             isTriggered = true;
-            
+
             ChangeToStandby();
 
             if (TriggerToTurnOff != null)
@@ -53,4 +48,22 @@ public class Target : MonoBehaviour
             gameObject.layer = 0;
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.layer == 9 && gameObject.layer == 8)
+    //    {
+    //        HitEffect.Play();
+    //        isTriggered = true;
+            
+    //        ChangeToStandby();
+
+    //        if (TriggerToTurnOff != null)
+    //        {
+    //            Destroy(TriggerToTurnOff);
+    //        }
+
+    //        gameObject.layer = 0;
+    //    }
+    //}
 }
