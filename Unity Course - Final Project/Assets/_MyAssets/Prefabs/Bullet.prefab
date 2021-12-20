@@ -126,4 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8106239366208423173}
-  lifeTime: 5
+  lifeTime: 3
