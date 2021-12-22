@@ -9,8 +9,10 @@ public class Target : MonoBehaviour
 
     [Header("References")]
     public ParticleSystem HitEffect;
+    public Material OffMat;
     public Material StandbyMat;
     public Material OnMat;
+
     [Header("Information")]
     public bool isTriggered = false;
     public bool isCounted = false;
@@ -22,15 +24,7 @@ public class Target : MonoBehaviour
         myRenderer = GetComponent<Renderer>();
     }
 
-    public void ChangeToStandby()
-    {
-        myRenderer.material = StandbyMat;
-    }
-
-    public void ChangeToOn()
-    {
-        myRenderer.material = OnMat;
-    }
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 9 && gameObject.layer == 8)
@@ -52,23 +46,33 @@ public class Target : MonoBehaviour
 
             gameObject.layer = 0;
         }
+
+        if (collision.gameObject.layer == 9 && gameObject.layer == 10)
+        {
+            isTriggered = true;
+        }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.layer == 9 && gameObject.layer == 8)
-    //    {
-    //        HitEffect.Play();
-    //        isTriggered = true;
+    public void ChangeToOff()
+    {
+        myRenderer.material = OffMat;
+    }
 
-    //        ChangeToStandby();
+    public void ChangeToStandby()
+    {
+        myRenderer.material = StandbyMat;
+    }
 
-    //        if (TriggerToTurnOff != null)
-    //        {
-    //            Destroy(TriggerToTurnOff);
-    //        }
+    public void ChangeToOn()
+    {
+        myRenderer.material = OnMat;
+    }
 
-    //        gameObject.layer = 0;
-    //    }
-    //}
+
+    void BulletHole(Collision collision, GameObject prefab)
+    {
+        GameObject newBulletHole = GameObject.Instantiate(prefab, collision.transform);
+        newBulletHole.transform.SetParent(collision.transform);
+    }
+
 }
