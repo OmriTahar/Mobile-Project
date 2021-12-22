@@ -26,7 +26,6 @@ public class Target : MonoBehaviour
     {
         myRenderer = GetComponent<Renderer>();
     }
-
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -53,10 +52,7 @@ public class Target : MonoBehaviour
         if (collision.gameObject.layer == 9 && gameObject.layer == 10 && !isTriggered)
         {
             isTriggered = true;
-            ChangeToOn();
-
             SecondSwitch.isTriggered = false;
-            SecondSwitch.ChangeToOff();
         }
     }
 
@@ -75,11 +71,5 @@ public class Target : MonoBehaviour
         myRenderer.material = OnMat;
     }
 
-
-    void BulletHole(Collision collision, GameObject prefab)
-    {
-        GameObject newBulletHole = GameObject.Instantiate(prefab, collision.transform);
-        newBulletHole.transform.SetParent(collision.transform);
-    }
 
 }
