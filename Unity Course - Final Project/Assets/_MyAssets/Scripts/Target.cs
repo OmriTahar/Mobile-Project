@@ -16,8 +16,11 @@ public class Target : MonoBehaviour
     [Header("Information")]
     public bool isTriggered = false;
     public bool isCounted = false;
-
     public GameObject TriggerToTurnOff;
+
+    [Header("Switch Target")]
+    public Target SecondSwitch;
+
 
     private void Start()
     {
@@ -47,9 +50,13 @@ public class Target : MonoBehaviour
             gameObject.layer = 0;
         }
 
-        if (collision.gameObject.layer == 9 && gameObject.layer == 10)
+        if (collision.gameObject.layer == 9 && gameObject.layer == 10 && !isTriggered)
         {
             isTriggered = true;
+            ChangeToOn();
+
+            SecondSwitch.isTriggered = false;
+            SecondSwitch.ChangeToOff();
         }
     }
 
