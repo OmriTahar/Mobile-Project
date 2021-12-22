@@ -35,7 +35,12 @@ public class Target : MonoBehaviour
     {
         if (collision.gameObject.layer == 9 && gameObject.layer == 8)
         {
-            HitEffect.Play();
+
+            if (HitEffect.gameObject != null)
+            {
+                HitEffect.Play();
+            }
+
             isTriggered = true;
 
             ChangeToStandby();
@@ -55,7 +60,7 @@ public class Target : MonoBehaviour
     //    {
     //        HitEffect.Play();
     //        isTriggered = true;
-            
+
     //        ChangeToStandby();
 
     //        if (TriggerToTurnOff != null)
