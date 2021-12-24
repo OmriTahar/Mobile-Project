@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
 {
 
     private Renderer myRenderer;
+    private Animator myAnimator;
 
     [Header("References")]
     public ParticleSystem HitEffect;
@@ -25,6 +26,12 @@ public class Target : MonoBehaviour
     private void Start()
     {
         myRenderer = GetComponent<Renderer>();
+
+        if (GetComponentInParent<Animator>() != null)
+        {
+            myAnimator = GetComponentInParent<Animator>();
+            Debug.Log(gameObject.name + "Animator ceshed!");
+        }
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -32,27 +39,27 @@ public class Target : MonoBehaviour
         if (collision.gameObject.layer == 9 && gameObject.layer == 8)
         {
 
+            if (TriggerToTurnOff != null)
+                Destroy(TriggerToTurnOff);
+            
             if (HitEffect.gameObject != null)
-            {
                 HitEffect.Play();
-            }
+
+            if (myAnimator != null)
+                myAnimator.SetBool("gotHit", true);
 
             isTriggered = true;
-
             ChangeToStandby();
 
-            if (TriggerToTurnOff != null)
-            {
-                Destroy(TriggerToTurnOff);
-            }
-
             gameObject.layer = 0;
+            collision.gameObject.GetComponent<Bullet>().Deactivate();
         }
 
         if (collision.gameObject.layer == 9 && gameObject.layer == 10 && !isTriggered)
         {
             isTriggered = true;
             SecondSwitch.isTriggered = false;
+            collision.gameObject.GetComponent<Bullet>().Deactivate();
         }
     }
 

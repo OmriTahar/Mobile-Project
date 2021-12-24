@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody rigidbody;
     public float lifeTime;
+
     public void Activate(Vector3 position, Vector3 velocity)
     {
         transform.position = position;
