@@ -5,15 +5,15 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour
 {
 
-    [SerializeField] private Transform cameraTransform;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private CameraBobbing _cameraBobbing;
 
     [Header("Movement & Look Settings")]
-    public bool isAllowedToWalk = true;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float cameraSensitivity;
     [SerializeField] private float moveInputDeadZone;
+    public bool isAllowedToWalk = true;
 
     [Header("Gravity & Jumping")]
     public float GravityWhenGrounded = 10;

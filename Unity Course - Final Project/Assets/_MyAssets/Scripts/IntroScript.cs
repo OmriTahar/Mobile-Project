@@ -9,7 +9,7 @@ public class IntroScript : MonoBehaviour
 
     private void Start()
     {
-        //Player.isAllowedToWalk = false;
+        Player.isAllowedToWalk = false;
     }
 
     void Update()

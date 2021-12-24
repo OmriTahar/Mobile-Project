@@ -60,6 +60,8 @@ public class Target : MonoBehaviour
             isTriggered = true;
             SecondSwitch.isTriggered = false;
             collision.gameObject.GetComponent<Bullet>().Deactivate();
+
+            Debug.Log("Hit switch!");
         }
     }
 
