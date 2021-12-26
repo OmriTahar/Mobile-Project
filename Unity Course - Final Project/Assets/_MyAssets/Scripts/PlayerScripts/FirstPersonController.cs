@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
 {
-
+    [Header("References")]
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CameraBobbing _cameraBobbing;
 
-    [Header("Movement & Look Settings")]
-    [SerializeField] private float moveSpeed;
+    [Header("Look and Touch Settings")]
+    [SerializeField] private float touchInputDeadZone; // Higher means less dead zone
     [SerializeField] private float cameraSensitivity;
-    [SerializeField] private float moveInputDeadZone;
+
+    [Header("Movement Settings")]
+    [SerializeField] private float actualMoveSpeed;
+    [SerializeField] private float groundMoveSpeed;
+    [SerializeField] private float stairsMoveSpeed;
     public bool isAllowedToWalk = true;
 
     [Header("Gravity & Jumping")]
@@ -22,13 +26,15 @@ public class FirstPersonController : MonoBehaviour
     private float _velocity;
 
     [Header("Ground Check")]
-    public Transform GroundCheck;
-    public LayerMask GroundLayers;
-    public float GroudCheckRadius;
-    public bool _isGrounded;
+    [SerializeField] Transform GroundCheck;
+    [SerializeField] LayerMask GroundLayers;
+    [SerializeField] LayerMask StairsLayer;
+    [SerializeField] float GroudCheckRadius;
+    public bool IsGrounded;
 
     [Header("Other Checks")]
     public bool IsAiming;
+    public bool IsOnStairs;
 
     // Touch detaction
     private int _leftFingerId, _rightFingerId;
@@ -52,13 +58,14 @@ public class FirstPersonController : MonoBehaviour
         _halfScreenWidth = Screen.width / 2;
 
         // calculate the movement input dead zone
-        moveInputDeadZone = Mathf.Pow(Screen.height / moveInputDeadZone, 2);
+        touchInputDeadZone = Mathf.Pow(Screen.height / touchInputDeadZone, 2);
     }
 
     void Update()
     {
         ApplyGravity();
         GetTouchInput();
+        IsOnStairsCheck();
 
         if (_rightFingerId != -1) // Only look around if the right finger is being tracked
             LookAround(); 
@@ -71,18 +78,25 @@ public class FirstPersonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _isGrounded = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers);
+        IsGrounded = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, GroundLayers);
+    }
+
+    void IsOnStairsCheck()
+    {
+        IsOnStairs = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, StairsLayer);
     }
 
     void ApplyGravity()
     {
-        if (_isGrounded && _velocity <= 0)
+        if (IsGrounded && _velocity <= 0)
             _velocity = -GravityWhenGrounded * Time.deltaTime;
         else
             _velocity -= GravityInAir * Time.deltaTime;
 
         Vector3 verticalMovement = transform.up * _velocity;
         characterController.Move(verticalMovement * Time.deltaTime);
+
+        
     }
 
     void GetTouchInput()
@@ -163,8 +177,16 @@ public class FirstPersonController : MonoBehaviour
 
     void Move()
     {
+
+        // Reduce move speed on stairs
+        if (IsOnStairs)
+            actualMoveSpeed = stairsMoveSpeed;
+        else
+            actualMoveSpeed = groundMoveSpeed;
+
+
         // Don't move if the touch delta is shorter than the designated dead zone
-        if (moveInput.sqrMagnitude <= moveInputDeadZone)
+        if (moveInput.sqrMagnitude <= touchInputDeadZone)
         {
             _cameraBobbing.isWalking = false;
             return;
@@ -173,14 +195,14 @@ public class FirstPersonController : MonoBehaviour
         _cameraBobbing.isWalking = true;
 
         // Multiply the normalized direction by the speed
-        Vector2 movementDirection = moveInput.normalized * moveSpeed * Time.deltaTime;
+        Vector2 movementDirection = moveInput.normalized * actualMoveSpeed * Time.deltaTime;
         // Move relatively to the local transform's direction
         characterController.Move(transform.right * movementDirection.x + transform.forward * movementDirection.y);
     }
 
     public void Jump()
     {
-        if (_isGrounded)
+        if (IsGrounded)
         {
             _velocity = JumpForce;
         }
@@ -189,7 +211,7 @@ public class FirstPersonController : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        if (_isGrounded)
+        if (IsGrounded)
         {
             Gizmos.color = Color.green;
         }
