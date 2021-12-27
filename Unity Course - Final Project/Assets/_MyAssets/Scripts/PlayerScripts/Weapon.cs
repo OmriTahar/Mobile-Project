@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
 
         MuzzleFlash.Play();
+        FindObjectOfType<AudioManager>().PlaySound("Pistol Shot Cut");
 
         animator.SetTrigger(animatorParam);
         Invoke("CanShootFunc", 0.4f);

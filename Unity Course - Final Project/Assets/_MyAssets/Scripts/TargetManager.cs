@@ -39,11 +39,11 @@ public class TargetManager : MonoBehaviour
 
         if (isAllTriggered && !DoorAccess.isAccessedDoor)
         {
-            DoorAccess.ChangeState(DoorAccess.OffPhase, DoorAccess.StandByPhase);
+            DoorAccess.ChangeActiveness(DoorAccess.OffPhase, DoorAccess.StandByPhase);
         }
         else if (isAllTriggered && !DoorAccess.isAccessedDoor)
         {
-            DoorAccess.ChangeState(DoorAccess.StandByPhase, DoorAccess.OnPhase);
+            DoorAccess.ChangeActiveness(DoorAccess.StandByPhase, DoorAccess.OnPhase);
         }
 
     }

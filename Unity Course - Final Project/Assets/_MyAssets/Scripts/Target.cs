@@ -62,6 +62,7 @@ public class Target : MonoBehaviour
             collision.gameObject.GetComponent<Bullet>().Deactivate();
 
             Debug.Log("Hit switch!");
+            FindObjectOfType<AudioManager>().PlaySound("Door Open");
         }
     }
 

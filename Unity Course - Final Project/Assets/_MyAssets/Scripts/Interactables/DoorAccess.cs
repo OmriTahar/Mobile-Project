@@ -33,10 +33,13 @@ public class DoorAccess : Interactable
 
     public override void OnInteraction()
     {
+
         isAccessedDoor = true;
         gameObject.layer = 0;
-        ChangeState(StandByPhase, OnPhase);
+
+        ChangeActiveness(StandByPhase, OnPhase);
         Animator.SetBool("Start", true);
+        FindObjectOfType<AudioManager>().PlaySound("Door Open");
 
         if (TriggerToActivate != null)
         {
@@ -49,7 +52,7 @@ public class DoorAccess : Interactable
         }
     }
 
-    public void ChangeState(GameObject currentState, GameObject newState)
+    public void ChangeActiveness(GameObject currentState, GameObject newState)
     {
         currentState.SetActive(false);
         newState.SetActive(true);

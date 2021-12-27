@@ -39,4 +39,5 @@ public class SwitchManager : MonoBehaviour
             DoorAnimator.SetBool("Close", true);
         }
     }
+
 }
