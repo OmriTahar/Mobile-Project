@@ -17,6 +17,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float actualMoveSpeed;
     [SerializeField] private float groundMoveSpeed;
     [SerializeField] private float stairsMoveSpeed;
+    [SerializeField] float StairsCheckRadius;
     public bool isAllowedToWalk = true;
 
     [Header("Gravity & Jumping")]
@@ -67,7 +68,6 @@ public class FirstPersonController : MonoBehaviour
         GetTouchInput();
         IsOnStairsCheck();
 
-
         if (_rightFingerId != -1) // Only look around if the right finger is being tracked
             LookAround(); 
 
@@ -84,7 +84,13 @@ public class FirstPersonController : MonoBehaviour
 
     void IsOnStairsCheck()
     {
-        IsOnStairs = Physics.CheckSphere(GroundCheck.position, GroudCheckRadius, StairsLayer);
+        IsOnStairs = Physics.CheckSphere(GroundCheck.position, StairsCheckRadius, StairsLayer);
+
+        // Reduce move speed on stairs
+        if (IsOnStairs)
+            actualMoveSpeed = stairsMoveSpeed;
+        else
+            actualMoveSpeed = groundMoveSpeed;
     }
 
     void ApplyGravity()
@@ -179,13 +185,6 @@ public class FirstPersonController : MonoBehaviour
     void Move()
     {
 
-        // Reduce move speed on stairs
-        if (IsOnStairs)
-            actualMoveSpeed = stairsMoveSpeed;
-        else
-            actualMoveSpeed = groundMoveSpeed;
-
-
         // Don't move if the touch delta is shorter than the designated dead zone
         if (moveInput.sqrMagnitude <= touchInputDeadZone)
         {
@@ -209,19 +208,19 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
+    //private void OnDrawGizmos()
+    //{
 
-        if (IsGrounded)
-        {
-            Gizmos.color = Color.green;
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-        }
+    //    if (IsGrounded)
+    //    {
+    //        Gizmos.color = Color.green;
+    //    }
+    //    else
+    //    {
+    //        Gizmos.color = Color.red;
+    //    }
 
-        Gizmos.DrawWireSphere(GroundCheck.position, GroudCheckRadius);
-    }
+    //    Gizmos.DrawWireSphere(GroundCheck.position, StairsCheckRadius);
+    //}
 
 }
