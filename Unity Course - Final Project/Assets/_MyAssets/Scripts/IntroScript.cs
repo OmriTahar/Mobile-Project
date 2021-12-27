@@ -3,10 +3,9 @@ using UnityEngine.UI;
 
 public class IntroScript : MonoBehaviour
 {
-    public FirstPersonController Player;
+
     public GameObject TriggerToActivate;
     public Image image;
-
 
     void Update()
     {
