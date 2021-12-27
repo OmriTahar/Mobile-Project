@@ -10,16 +10,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Pushable
   - Interactable
   - Target
   - Bullet
-  - 
-  - 
-  - 
+  - Switch Target
+  - Player
+  - Stairs
   - 
   - 
   - 

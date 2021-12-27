@@ -7,10 +7,6 @@ public class IntroScript : MonoBehaviour
     public GameObject TriggerToActivate;
     public Image image;
 
-    private void Start()
-    {
-        Player.isAllowedToWalk = false;
-    }
 
     void Update()
     {
