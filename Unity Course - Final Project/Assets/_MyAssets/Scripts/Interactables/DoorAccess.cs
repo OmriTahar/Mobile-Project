@@ -15,6 +15,8 @@ public class DoorAccess : Interactable
     [Header("References")]
     public Animator Animator;
     public GameObject TriggerToActivate;
+
+    [Header("Intro Beat")]
     public FirstPersonController Player;
 
     private void Start()

@@ -46077,7 +46077,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21742
+  m_Name: pb_Mesh65782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -47043,7 +47043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771af3e8adc2bde488a3f0e516831e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 827682595}
   TriggerToActivate: {fileID: 1053954663}
   image: {fileID: 251117662}
 --- !u!65 &1498704018
@@ -77003,10 +77002,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moveable Door 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6572655519430093430, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6573763475902273352, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -77051,18 +77046,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6586451298480309914, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 49f741fd7e3673e45bd2dad7c2a6bd8b, type: 2}
-    - target: {fileID: 7853669804945945022, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853669804945945022, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 67cb2ac8bb2464c4790d5496f5109171, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53935966f91bf48448b2e26f9fb719e6, type: 3}
 --- !u!1001 &5534045395239088904
