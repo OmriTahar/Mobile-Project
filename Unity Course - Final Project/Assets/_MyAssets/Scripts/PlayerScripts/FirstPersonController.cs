@@ -67,6 +67,7 @@ public class FirstPersonController : MonoBehaviour
         GetTouchInput();
         IsOnStairsCheck();
 
+
         if (_rightFingerId != -1) // Only look around if the right finger is being tracked
             LookAround(); 
 
