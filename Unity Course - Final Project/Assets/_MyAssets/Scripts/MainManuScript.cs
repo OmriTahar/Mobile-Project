@@ -17,11 +17,37 @@ public class MainManuScript : MonoBehaviour
     public void StartGame()
     {
         canvas.gameObject.SetActive(false);
-        
+        ChangeDoorAccess(OnPhase, StandByPhase);
+        DoorAnimator.SetBool("Start", true);
+
+        Invoke("MoveCamera", 2f);
+        Invoke("GoToScene", 7f);
     }
 
     public void QuitGame()
     {
+        ChangeDoorAccess(OffPhase, StandByPhase);
+        Invoke("ActualQuit", 2f);
+    }
+
+    private void ActualQuit()
+    {
         Application.Quit();
+    }
+
+    private void MoveCamera()
+    {
+        CameraAnimator.SetBool("Start", true);
+    }
+
+    private void GoToScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void ChangeDoorAccess(GameObject setActive, GameObject setNOTactive)
+    {
+        setActive.SetActive(true);
+        setNOTactive.SetActive(false);
     }
 }

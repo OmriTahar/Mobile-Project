@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    public FirstPersonController Player;
 
     [Header("Level Finish")]
     public GameObject EndTrigger;
@@ -13,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //Player.isAllowedToWalk = false;
+        Player.isAllowedToWalk = false;
         EndCamera.SetActive(false);
     }
 
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Debug.Log("Main Menu!");
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame() 
