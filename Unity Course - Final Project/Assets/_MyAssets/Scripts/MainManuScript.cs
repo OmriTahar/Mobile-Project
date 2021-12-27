@@ -10,12 +10,14 @@ public class MainManuScript : MonoBehaviour
     public GameObject OffPhase;
 
     [Header("References")]
-    public Animator Animator;
-    public Camera ManuCamera;
+    public Animator DoorAnimator;
+    public Animator CameraAnimator;
+    public Canvas canvas;
 
     public void StartGame()
     {
-
+        canvas.gameObject.SetActive(false);
+        
     }
 
     public void QuitGame()
