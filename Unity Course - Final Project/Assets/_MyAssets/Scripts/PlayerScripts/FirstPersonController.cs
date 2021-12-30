@@ -12,6 +12,8 @@ public class FirstPersonController : MonoBehaviour
     [Header("Look and Touch Settings")]
     [SerializeField] private float touchInputDeadZone; // Higher means less dead zone
     [SerializeField] private float cameraSensitivity;
+    public bool isAllowedToLook = true;
+
 
     [Header("Movement Settings")]
     [SerializeField] private float actualMoveSpeed;
@@ -68,7 +70,7 @@ public class FirstPersonController : MonoBehaviour
         GetTouchInput();
         IsOnStairsCheck();
 
-        if (_rightFingerId != -1) // Only look around if the right finger is being tracked
+        if (_rightFingerId != -1 && isAllowedToLook) // Only look around if the right finger is being tracked
             LookAround(); 
 
         if (_leftFingerId != -1 && !IsAiming && isAllowedToWalk) // Only move if the left finger is being tracked
@@ -102,8 +104,6 @@ public class FirstPersonController : MonoBehaviour
 
         Vector3 verticalMovement = transform.up * _velocity;
         characterController.Move(verticalMovement * Time.deltaTime);
-
-        
     }
 
     void GetTouchInput()
@@ -202,7 +202,7 @@ public class FirstPersonController : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded)
+        if (IsGrounded && isAllowedToWalk)
         {
             _velocity = JumpForce;
         }

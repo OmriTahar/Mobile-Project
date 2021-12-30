@@ -21,13 +21,13 @@ public class MainManuScript : MonoBehaviour
         DoorAnimator.SetBool("Start", true);
 
         Invoke("MoveCamera", 2f);
-        Invoke("GoToScene", 7f);
+        Invoke("GoToScene", 6f);
     }
 
     public void QuitGame()
     {
         ChangeDoorAccess(OffPhase, StandByPhase);
-        Invoke("ActualQuit", 2f);
+        Invoke("ActualQuit", 1f);
     }
 
     private void ActualQuit()

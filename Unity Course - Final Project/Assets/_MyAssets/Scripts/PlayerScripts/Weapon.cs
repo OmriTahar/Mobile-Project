@@ -27,10 +27,13 @@ public class Weapon : MonoBehaviour
     public ParticleSystem MuzzleFlash;
 
     [Header("Information")]
+    public bool _isInfiniteAmmo = true;
     [SerializeField] bool CanShoot = true;
     [SerializeField] private bool _isShooting;
 
     BulletPool _bulletPool;
+    int ammoSpaceToFill = 0;
+    int ammoToReload = 0;
 
 
     void Start()
@@ -40,13 +43,22 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        AmmoText.text = _magCurrentAmmo + "/" + _currentAmmo;
-        
+        if (_isInfiniteAmmo)
+        {
+            AmmoText.gameObject.SetActive(false);
+        }
+        else
+        {
+            AmmoText.gameObject.SetActive(true);
+            AmmoText.text = _magCurrentAmmo + "/" + _currentAmmo;
+        }
+
     }
 
 
     private void ShootFlow()
     {
+
         _magCurrentAmmo -= 1;
 
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
@@ -60,10 +72,11 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
+
         if (_magCurrentAmmo > 1 && !_isReloading)
         {
             ShootFlow();
-            Invoke("CanShootFunc", 0.5f);
+            Invoke("CanShootFunc", 1f);
         }
         else if (_magCurrentAmmo == 1 && !_isReloading)
         {
@@ -74,10 +87,7 @@ public class Weapon : MonoBehaviour
 
     public void Reload()
     {
-        int ammoSpaceToFill = 0;
-        int ammoToReload = 0;
 
-        // Actual Reloading
         if (_magCurrentAmmo < _magSize && _currentAmmo >= 1)
         {
             _isReloading = true;
@@ -99,8 +109,6 @@ public class Weapon : MonoBehaviour
                 ammoToReload = ammoSpaceToFill;
             }
 
-            _currentAmmo -= ammoToReload;
-            _magCurrentAmmo += ammoToReload;
 
             Invoke("DoneReloading", 1.4f);
         }
@@ -133,6 +141,11 @@ public class Weapon : MonoBehaviour
 
     public void DoneReloading()
     {
+        if (!_isInfiniteAmmo)
+            _currentAmmo -= ammoToReload;
+
+        _magCurrentAmmo += ammoToReload;
+
         CanShoot = true;
         _isReloading = false;
         animatorParam = "Shoot";
