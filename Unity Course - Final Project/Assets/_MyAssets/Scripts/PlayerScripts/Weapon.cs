@@ -85,6 +85,7 @@ public class Weapon : MonoBehaviour
 
             animatorParam = "Reload";
             animator.SetTrigger(animatorParam);
+            FindObjectOfType<AudioManager>().PlaySound("Pistol Reload");
 
             ammoSpaceToFill = _magSize - _magCurrentAmmo;
 
