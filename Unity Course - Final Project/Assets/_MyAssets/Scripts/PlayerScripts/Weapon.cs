@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -7,11 +9,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 10;
 
     [Header("Ammunition and Reloading")]
-    public int _maxAmmo = 42;
-    public int _currentAmmo = 28;
-    public int _magSize = 14;
-    public int _magCurrentAmmo = 14;
-
+    public int _maxAmmo = 20;
+    public int _currentAmmo = 10;
+    public int _magSize = 3;
+    public int _magCurrentAmmo = 3;
+    public bool _isReloading = false;
+    public TextMeshProUGUI AmmoText;
 
     [Header("Animator")]
     public Animator animator;
@@ -34,8 +37,17 @@ public class Weapon : MonoBehaviour
         _bulletPool = BulletPool.Instance;
     }
 
-    public void Shoot()
+    private void Update()
     {
+        AmmoText.text = _magCurrentAmmo + "/" + _currentAmmo;
+        
+    }
+
+
+    private void ShootFlow()
+    {
+        _magCurrentAmmo -= 1;
+
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
 
@@ -43,7 +55,58 @@ public class Weapon : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound("Pistol Shot Cut");
 
         animator.SetTrigger(animatorParam);
-        Invoke("CanShootFunc", 0.4f);
+    }
+
+    public void Shoot()
+    {
+        if (_magCurrentAmmo > 1 && !_isReloading)
+        {
+            ShootFlow();
+            Invoke("CanShootFunc", 0.5f);
+        }
+        else if (_magCurrentAmmo == 1 && !_isReloading)
+        {
+            ShootFlow();
+            Invoke("Reload", 0.5f);
+        }
+    }
+
+    public void Reload()
+    {
+        int ammoSpaceToFill = 0;
+        int ammoToReload = 0;
+
+        // Actual Reloading
+        if (_magCurrentAmmo < _magSize && _currentAmmo >= 1)
+        {
+            _isReloading = true;
+            CanShoot = false;
+
+            animatorParam = "Reload";
+            animator.SetTrigger(animatorParam);
+
+            ammoSpaceToFill = _magSize - _magCurrentAmmo;
+
+            // Ammo to Reload check
+            if (ammoSpaceToFill >= _currentAmmo)
+            {
+                ammoToReload = _currentAmmo;
+            }
+            else if (ammoSpaceToFill < _currentAmmo)
+            {
+                ammoToReload = ammoSpaceToFill;
+            }
+
+            _currentAmmo -= ammoToReload;
+            _magCurrentAmmo += ammoToReload;
+
+            Invoke("DoneReloading", 1.4f);
+        }
+        else
+        {
+            Debug.Log("No ammo left");
+        }
+
     }
 
     public void PullTrigger()
@@ -64,5 +127,12 @@ public class Weapon : MonoBehaviour
     public void CanShootFunc()
     {
         CanShoot = true;
+    }
+
+    public void DoneReloading()
+    {
+        CanShoot = true;
+        _isReloading = false;
+        animatorParam = "Shoot";
     }
 }
