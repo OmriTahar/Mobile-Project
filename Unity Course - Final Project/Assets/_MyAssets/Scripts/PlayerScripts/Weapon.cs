@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     public bool _isReloading = false;
     public TextMeshProUGUI AmmoText;
 
+
     [Header("Animator")]
     public Animator animator;
     public string animatorParam = "Shoot";
