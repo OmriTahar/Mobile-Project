@@ -3,18 +3,31 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    [Header("Weapon Settings")]
+    [SerializeField] private float _bulletSpeed = 10;
+
+    [Header("Ammunition and Reloading")]
+    public int _maxAmmo = 42;
+    public int _currentAmmo = 28;
+    public int _magSize = 14;
+    public int _magCurrentAmmo = 14;
+
+
     [Header("Animator")]
     public Animator animator;
     public string animatorParam = "Shoot";
-    public bool CanShoot = true;
 
+    [Header("References")]
     public Transform Camera;
     public Transform FirePoint;
     public ParticleSystem MuzzleFlash;
 
+    [Header("Information")]
+    [SerializeField] bool CanShoot = true;
     [SerializeField] private bool _isShooting;
-    [SerializeField] private float _bulletSpeed = 10;
+
     BulletPool _bulletPool;
+
 
     void Start()
     {
