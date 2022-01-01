@@ -7485,6 +7485,7 @@ MonoBehaviour:
   PlayerGun: {fileID: 4054839983551906558}
   AimButton: {fileID: 539793588}
   TriggerToActivate: {fileID: 1019574308}
+  GunAnimator: {fileID: 1551030898}
 --- !u!65 &194212239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -74266,7 +74267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4054910046196042080
 GameObject:
   m_ObjectHideFlags: 0
