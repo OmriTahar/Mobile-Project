@@ -9,19 +9,19 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 10;
 
     [Header("Ammunition and Reloading")]
-    public int _maxAmmo = 20;
-    public int _currentAmmo = 10;
+    public int MaxHoldableAmmo = 20;
     public int _magSize = 3;
+    public int SpareAmmo = 10;
     public int _magCurrentAmmo = 3;
     public bool _isReloading = false;
     public TextMeshProUGUI AmmoText;
-
 
     [Header("Animator")]
     public Animator animator;
     public string animatorParam = "Shoot";
 
     [Header("References")]
+    public GameManager gameManager;
     public Transform Camera;
     public Transform FirePoint;
     public ParticleSystem MuzzleFlash;
@@ -50,11 +50,14 @@ public class Weapon : MonoBehaviour
         else
         {
             AmmoText.gameObject.SetActive(true);
-            AmmoText.text = _magCurrentAmmo + "/" + _currentAmmo;
+            AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
         }
 
+        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0)
+        {
+            gameManager.LoseCondition();
+        }
     }
-
 
     private void ShootFlow()
     {
@@ -88,7 +91,7 @@ public class Weapon : MonoBehaviour
     public void Reload()
     {
 
-        if (_magCurrentAmmo < _magSize && _currentAmmo >= 1)
+        if (_magCurrentAmmo < _magSize && SpareAmmo >= 1)
         {
             _isReloading = true;
             CanShoot = false;
@@ -100,11 +103,11 @@ public class Weapon : MonoBehaviour
             ammoSpaceToFill = _magSize - _magCurrentAmmo;
 
             // Ammo to Reload check
-            if (ammoSpaceToFill >= _currentAmmo)
+            if (ammoSpaceToFill >= SpareAmmo)
             {
-                ammoToReload = _currentAmmo;
+                ammoToReload = SpareAmmo;
             }
-            else if (ammoSpaceToFill < _currentAmmo)
+            else if (ammoSpaceToFill < SpareAmmo)
             {
                 ammoToReload = ammoSpaceToFill;
             }
@@ -142,7 +145,7 @@ public class Weapon : MonoBehaviour
     public void DoneReloading()
     {
         if (!_isInfiniteAmmo)
-            _currentAmmo -= ammoToReload;
+            SpareAmmo -= ammoToReload;
 
         _magCurrentAmmo += ammoToReload;
 

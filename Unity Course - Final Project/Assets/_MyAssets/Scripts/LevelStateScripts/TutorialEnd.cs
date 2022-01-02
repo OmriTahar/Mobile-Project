@@ -18,6 +18,7 @@ public class TutorialEnd : MonoBehaviour
             player.isAllowedToLook = false;
             player.isAllowedToWalk = false;
 
+            playerWeapon._magCurrentAmmo = playerWeapon._magSize;
             AttentionPanel.SetActive(true);
             playerWeapon._isInfiniteAmmo = false;
         }
