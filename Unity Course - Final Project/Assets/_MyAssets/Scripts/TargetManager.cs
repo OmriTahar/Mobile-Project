@@ -40,6 +40,11 @@ public class TargetManager : MonoBehaviour
         if (isAllTriggered && !DoorAccess.isAccessedDoor)
         {
             DoorAccess.ChangeActiveness(DoorAccess.OffPhase, DoorAccess.StandByPhase);
+
+            if (DoorAccess.GetComponentInChildren<ParticleSystem>() != null)
+            {
+                GetComponentInChildren<ParticleSystem>().Play();
+            }
         }
         else if (isAllTriggered && !DoorAccess.isAccessedDoor)
         {

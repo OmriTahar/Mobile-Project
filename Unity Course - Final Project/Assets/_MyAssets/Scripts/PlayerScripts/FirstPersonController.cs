@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Look and Touch Settings")]
     [SerializeField] private float touchInputDeadZone; // Higher means less dead zone
-    [SerializeField] private float cameraSensitivity;
+    public float cameraSensitivity;
+    //public Slider cameraSlider;
     public bool isAllowedToLook = true;
 
 
@@ -208,6 +210,7 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    
     //private void OnDrawGizmos()
     //{
 

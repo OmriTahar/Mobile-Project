@@ -5,7 +5,6 @@ using UnityEngine;
 public class DoorAccess : Interactable
 {
 
-
     [Header("Door Access States")]
     public bool isAccessedDoor = false;
     public GameObject OnPhase;
@@ -28,6 +27,7 @@ public class DoorAccess : Interactable
         else if (StandByPhase.activeInHierarchy)
         {
             gameObject.layer = 7;
+            
         }
     }
 
@@ -36,6 +36,11 @@ public class DoorAccess : Interactable
 
         isAccessedDoor = true;
         gameObject.layer = 0;
+
+        if (GetComponentInChildren<ParticleSystem>() != null)
+        {
+            GetComponentInChildren<ParticleSystem>().Stop();
+        }
 
         ChangeActiveness(StandByPhase, OnPhase);
         Animator.SetBool("Start", true);

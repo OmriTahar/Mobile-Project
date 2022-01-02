@@ -10,6 +10,7 @@ public class CollectableMAG : Interactable
     public override void OnInteraction()
     {
         playerWeapon.SpareAmmo += playerWeapon._magSize;
+        gameObject.SetActive(false);
         Destroy(gameObject, 1f);
     }
 }
