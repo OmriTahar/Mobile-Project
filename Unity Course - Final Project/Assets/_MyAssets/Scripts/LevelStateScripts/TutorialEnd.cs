@@ -8,6 +8,7 @@ public class TutorialEnd : MonoBehaviour
     public FirstPersonController player;
     public GameObject AttentionPanel;
     public GameObject HUD;
+    public TextMeshProUGUI ammoText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,9 @@ public class TutorialEnd : MonoBehaviour
     public void TutorialConfirm()
     {
         HUD.SetActive(true);
+        ammoText.text = playerWeapon._magCurrentAmmo + "/" + playerWeapon.SpareAmmo;
+        ammoText.gameObject.SetActive(true);
+
         playerWeapon.enabled = true;
         player.isAllowedToLook = true;
         player.isAllowedToWalk = true;

@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     {
         if (FinishLevelScript.isTriggered)
         {
+            Player.isAllowedToWalk = false;
+            audioManager.PlaySound("LevelWon");
+
             FinishLevelScript.isTriggered = false;
             FinishLevelScript.LevelEnding();
             Invoke("GoToMainMenu", 10f);
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        audioManager.PlaySound("Click");
+        //audioManager.PlaySound("Click");
         Debug.Log("Main Menu!");
         SceneManager.LoadScene(0);
     }

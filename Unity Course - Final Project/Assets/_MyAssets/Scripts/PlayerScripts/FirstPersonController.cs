@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     [Header("References")]
+    public AudioManager audioManager;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CameraBobbing _cameraBobbing;
@@ -200,6 +201,14 @@ public class FirstPersonController : MonoBehaviour
         Vector2 movementDirection = moveInput.normalized * actualMoveSpeed * Time.deltaTime;
         // Move relatively to the local transform's direction
         characterController.Move(transform.right * movementDirection.x + transform.forward * movementDirection.y);
+
+        if (moveInput.magnitude >= 0.5f)
+        {
+            if (!audioManager.Sounds[9].source.isPlaying)
+            {
+                audioManager.PlaySound("Step");
+            }
+        }
     }
 
     public void Jump()
@@ -207,6 +216,7 @@ public class FirstPersonController : MonoBehaviour
         if (IsGrounded && isAllowedToWalk)
         {
             _velocity = JumpForce;
+            audioManager.PlaySound("Jump");
         }
     }
 

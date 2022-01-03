@@ -8,6 +8,12 @@ public class PauseMenu : MonoBehaviour
     public Slider cameraSlider;
     public TextMeshProUGUI CameraSettingsText;
 
+    private void Start()
+    {
+        cameraSlider.value = player.cameraSensitivity;
+        CameraSettingsText.text = player.cameraSensitivity.ToString();
+    }
+
     public void ChangeCameraSensitivity()
     {
         player.cameraSensitivity = cameraSlider.value;

@@ -13,7 +13,6 @@ public class Weapon : MonoBehaviour
     public int _magSize = 3;
     public int SpareAmmo = 10;
     public int _magCurrentAmmo = 3;
-    public bool _isReloading = false;
     public TextMeshProUGUI AmmoText;
 
     [Header("Animator")]
@@ -29,8 +28,9 @@ public class Weapon : MonoBehaviour
 
     [Header("Information")]
     public bool _isInfiniteAmmo = true;
+    public bool _isReloading = false;
     [SerializeField] bool CanShoot = true;
-    [SerializeField] private bool _isShooting;
+    private bool _isShooting;
 
     BulletPool _bulletPool;
     int ammoSpaceToFill = 0;
@@ -40,10 +40,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         _bulletPool = BulletPool.Instance;
-    }
 
-    private void Update()
-    {
         if (_isInfiniteAmmo)
         {
             AmmoText.gameObject.SetActive(false);
@@ -53,8 +50,11 @@ public class Weapon : MonoBehaviour
             AmmoText.gameObject.SetActive(true);
             AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
         }
+    }
 
-        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0)
+    private void Update()
+    {
+        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0) // Lose Condition
         {
             gameManager.LoseCondition();
         }
@@ -64,6 +64,7 @@ public class Weapon : MonoBehaviour
     {
 
         _magCurrentAmmo -= 1;
+        AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
 
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
@@ -149,6 +150,7 @@ public class Weapon : MonoBehaviour
             SpareAmmo -= ammoToReload;
 
         _magCurrentAmmo += ammoToReload;
+        AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
 
         CanShoot = true;
         _isReloading = false;

@@ -321,7 +321,7 @@ PrefabInstance:
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[5].Clip
       value: 
-      objectReference: {fileID: 8300000, guid: f4b492fd67a20c3478e9fbbd9033a1b1, type: 3}
+      objectReference: {fileID: 8300000, guid: d64c3ef10fc27524085fbafd0e892adf, type: 3}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[5].Name
       value: TargetHit
@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[8].Vulume
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522517, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: m_Name
