@@ -31,7 +31,6 @@ public class Target : MonoBehaviour
         if (GetComponentInParent<Animator>() != null)
         {
             myAnimator = GetComponentInParent<Animator>();
-            Debug.Log(gameObject.name + "Animator ceshed!");
         }
     }
     

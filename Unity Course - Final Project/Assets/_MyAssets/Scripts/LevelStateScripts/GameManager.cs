@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //Player.isAllowedToWalk = false;
+
         FinishLevelCamera.SetActive(false);
     }
 
@@ -41,14 +42,14 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        audioManager.PlaySound("ButtonClick");
+        audioManager.PlaySound("Click");
         Debug.Log("Main Menu!");
         SceneManager.LoadScene(0);
     }
 
     public void OpenPauseMenu()
     {
-        audioManager.PlaySound("ButtonClick");
+        audioManager.PlaySound("Click");
 
         Player.isAllowedToWalk = false;
         UICanvas.SetActive(false);
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void ClosePauseMenu()
     {
-        audioManager.PlaySound("ButtonClick");
+        audioManager.PlaySound("Click");
 
         Player.isAllowedToWalk = true;
         UICanvas.SetActive(true);

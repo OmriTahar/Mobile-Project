@@ -1,28 +1,27 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
 
     public Sound[] Sounds;
-
-    public static AudioManager instance;
+    //public static AudioManager instance;
 
     private void Awake()
     {
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         foreach (Sound sound in Sounds)
         {
@@ -35,7 +34,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    
+
     public void PlaySound(string name)
     {
         Sound s = Array.Find(Sounds, sound => sound.Name == name);
@@ -47,6 +46,34 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Play();
+    }
+
+    public IEnumerator FadeOutSound(string name, float fadeTime)
+    {
+        Sound s = Array.Find(Sounds, sound => sound.Name == name);
+
+        Debug.Log("starting to fade audio");
+
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            yield break;
+        }
+
+        Debug.Log("Fading audio!");
+
+        float startVolume = s.source.volume;
+
+        while (s.source.volume > 0)
+        {
+            s.source.volume -= startVolume * Time.deltaTime / fadeTime;
+
+            yield return null;
+        }
+
+        s.source.Stop();
+        s.source.volume = startVolume;
     }
 
 }

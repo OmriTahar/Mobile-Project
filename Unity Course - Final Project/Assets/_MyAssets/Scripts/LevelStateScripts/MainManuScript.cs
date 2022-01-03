@@ -15,9 +15,15 @@ public class MainManuScript : MonoBehaviour
     public Animator CameraAnimator;
     public Canvas canvas;
 
+    private void Start()
+    {
+        audioManager.PlaySound("MenuTheme");
+    }
+
     public void StartGame()
     {
         audioManager.PlaySound("BigClick");
+        audioManager.FadeOutSound("MenuTheme", 2f);
 
         canvas.gameObject.SetActive(false);
         ChangeDoorAccess(OnPhase, StandByPhase);
