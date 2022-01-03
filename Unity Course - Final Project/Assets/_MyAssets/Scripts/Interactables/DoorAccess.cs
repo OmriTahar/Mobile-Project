@@ -44,7 +44,7 @@ public class DoorAccess : Interactable
 
         ChangeActiveness(StandByPhase, OnPhase);
         Animator.SetBool("Start", true);
-        FindObjectOfType<AudioManager>().PlaySound("Door Open");
+        audioManager.PlaySound("Door Open");
 
         if (TriggerToActivate != null)
         {

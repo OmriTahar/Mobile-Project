@@ -4,7 +4,6 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public FirstPersonController player;
     public Slider cameraSlider;
     public TextMeshProUGUI CameraSettingsText;

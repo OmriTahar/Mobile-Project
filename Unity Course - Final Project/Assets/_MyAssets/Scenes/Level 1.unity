@@ -880,6 +880,10 @@ PrefabInstance:
       propertyPath: HitEffect
       value: 
       objectReference: {fileID: 34778541}
+    - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 9009737438125635822, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -6083,6 +6087,10 @@ PrefabInstance:
       propertyPath: HitEffect
       value: 
       objectReference: {fileID: 1068910153}
+    - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 9009737438125635822, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -7511,6 +7519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0ca83b18ebfdb46ad03eaa1812cac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   HitEffect: {fileID: 0}
   OffMat: {fileID: 0}
   StandbyMat: {fileID: 2100000, guid: 6163d1ab76b6939459e6adc52597ddec, type: 2}
@@ -7926,6 +7935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa56cc1bc29bf74faf4d4ccf7f551be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 2100458570}
   PlayerGun: {fileID: 4054839983551906558}
   AimButton: {fileID: 539793588}
   TriggerToActivate: {fileID: 1019574308}
@@ -7962,6 +7972,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1548836757}
+    - target: {fileID: 779631453, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 7989544401796259256, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_Name
       value: On 2
@@ -18885,7 +18899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &800165542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19469,8 +19483,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827682590}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.25, y: 1, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.69, y: 9.246, z: 64.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735442209}
@@ -19478,7 +19492,7 @@ Transform:
   - {fileID: 871366286}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &827682595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19556,6 +19570,7 @@ MonoBehaviour:
   animator: {fileID: 1551030898}
   animatorParam: Shoot
   gameManager: {fileID: 1907782348}
+  audioManager: {fileID: 2100458570}
   Camera: {fileID: 1551030897}
   FirePoint: {fileID: 765887217}
   MuzzleFlash: {fileID: 587266889}
@@ -29869,6 +29884,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1508379294}
+    - target: {fileID: 779631453, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 7989544401796259256, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_Name
       value: On 4
@@ -32591,6 +32610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0ca83b18ebfdb46ad03eaa1812cac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 2100458570}
   HitEffect: {fileID: 2079353448761616273}
   OffMat: {fileID: 0}
   StandbyMat: {fileID: 2100000, guid: 6163d1ab76b6939459e6adc52597ddec, type: 2}
@@ -36583,6 +36603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c658b197fa06d3478642f1e9c80666f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
 --- !u!1 &1383513163
 GameObject:
   m_ObjectHideFlags: 0
@@ -39036,6 +39057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0ca83b18ebfdb46ad03eaa1812cac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 2100458570}
   HitEffect: {fileID: 140737007}
   OffMat: {fileID: 0}
   StandbyMat: {fileID: 2100000, guid: 6163d1ab76b6939459e6adc52597ddec, type: 2}
@@ -41292,7 +41314,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42926,7 +42948,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -43861,6 +43883,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1508379294}
+    - target: {fileID: 779631453, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 7989544401796259256, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: m_Name
       value: On 3
@@ -48111,6 +48137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 827682595}
+  audioManager: {fileID: 2100458570}
   pauseMenu: {fileID: 800165545}
   pauseMenuPanel: {fileID: 800165541}
   UICanvas: {fileID: 1686108832}
@@ -54025,6 +54052,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099803475}
   m_Mesh: {fileID: 4300000, guid: 8a8169f407088b44dbb45dd0988a4131, type: 3}
+--- !u!114 &2100458570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+  m_PrefabInstance: {fileID: 4429910687492718829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a46b3d9d1fa9642b1cf10bc07e8e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104394999
 GameObject:
   m_ObjectHideFlags: 0
@@ -54371,6 +54409,10 @@ PrefabInstance:
       propertyPath: HitEffect
       value: 
       objectReference: {fileID: 2113549576}
+    - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 9009737438125635822, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -62187,6 +62229,10 @@ PrefabInstance:
       propertyPath: isTriggered
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3666495353922624093, guid: 91c010ef2c12c0945b98191692579f34, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 3666495354194939780, guid: 91c010ef2c12c0945b98191692579f34, type: 3}
       propertyPath: DoorAnimator
       value: 
@@ -62243,6 +62289,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5993632617155431046, guid: 91c010ef2c12c0945b98191692579f34, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c010ef2c12c0945b98191692579f34, type: 3}
 --- !u!1 &3675505201514604244
@@ -66825,7 +66875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4054910046196042080
 GameObject:
   m_ObjectHideFlags: 0
@@ -67006,7 +67056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[1].Clip
@@ -67033,6 +67083,22 @@ PrefabInstance:
       value: Pistol Draw
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[4].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c173826ed314c4a4d94a4e75cdd52783, type: 3}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[4].Name
+      value: PickUpMag
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[5].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f4b492fd67a20c3478e9fbbd9033a1b1, type: 3}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[5].Name
+      value: TargetHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[0].Pitch
       value: 1
       objectReference: {fileID: 0}
@@ -67049,8 +67115,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[4].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[5].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[0].Vulume
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[1].Vulume
@@ -67062,6 +67136,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[3].Vulume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[4].Vulume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[5].Vulume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522517, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
@@ -70746,6 +70828,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 200712274}
     m_Modifications:
+    - target: {fileID: 5895822459330863264, guid: ec2e14e485f9c3b43b5ee56b59f8876b, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 5895822459330863264, guid: ec2e14e485f9c3b43b5ee56b59f8876b, type: 3}
       propertyPath: playerWeapon
       value: 
@@ -78001,6 +78087,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1759183441}
     - target: {fileID: 779631453, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
+    - target: {fileID: 779631453, guid: f99532705bf7f3e4ab830e7e7f890653, type: 3}
       propertyPath: TriggerToActivate
       value: 
       objectReference: {fileID: 368545566}
@@ -78126,6 +78216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2100458570}
     - target: {fileID: 9009737438125635819, guid: d548e44adb630f44a832c72daaf1f053, type: 3}
       propertyPath: TriggerToTurnOff
       value: 

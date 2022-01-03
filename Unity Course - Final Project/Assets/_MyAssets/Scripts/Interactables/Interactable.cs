@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    
+    public AudioManager audioManager;
+
     public virtual void OnInteraction()
     {
         Debug.Log("Interaction!");

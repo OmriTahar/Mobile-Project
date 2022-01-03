@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     private Animator myAnimator;
 
     [Header("References")]
+    public AudioManager audioManager;
     public ParticleSystem HitEffect;
     public Material OffMat;
     public Material StandbyMat;
@@ -38,6 +39,7 @@ public class Target : MonoBehaviour
     {
         if (collision.gameObject.layer == 9 && gameObject.layer == 8)
         {
+            audioManager.PlaySound("TargetHit");
 
             if (TriggerToTurnOff != null)
                 Destroy(TriggerToTurnOff);

@@ -9,6 +9,7 @@ public class CollectableMAG : Interactable
 
     public override void OnInteraction()
     {
+        audioManager.PlaySound("PickUpMag");
         playerWeapon.SpareAmmo += playerWeapon._magSize;
         gameObject.SetActive(false);
         Destroy(gameObject, 1f);

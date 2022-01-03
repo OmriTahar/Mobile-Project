@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public FirstPersonController Player;
+    public AudioManager audioManager;
 
     [Header("Pause Menu")]
     public PauseMenu pauseMenu;
@@ -36,17 +37,19 @@ public class GameManager : MonoBehaviour
             FinishLevelScript.LevelEnding();
             Invoke("GoToMainMenu", 10f);
         }
-
     }
 
     public void GoToMainMenu()
     {
+        audioManager.PlaySound("ButtonClick");
         Debug.Log("Main Menu!");
         SceneManager.LoadScene(0);
     }
 
     public void OpenPauseMenu()
     {
+        audioManager.PlaySound("ButtonClick");
+
         Player.isAllowedToWalk = false;
         UICanvas.SetActive(false);
 
@@ -55,6 +58,8 @@ public class GameManager : MonoBehaviour
 
     public void ClosePauseMenu()
     {
+        audioManager.PlaySound("ButtonClick");
+
         Player.isAllowedToWalk = true;
         UICanvas.SetActive(true);
 

@@ -10,12 +10,15 @@ public class MainManuScript : MonoBehaviour
     public GameObject OffPhase;
 
     [Header("References")]
+    public AudioManager audioManager;
     public Animator DoorAnimator;
     public Animator CameraAnimator;
     public Canvas canvas;
 
     public void StartGame()
     {
+        audioManager.PlaySound("BigClick");
+
         canvas.gameObject.SetActive(false);
         ChangeDoorAccess(OnPhase, StandByPhase);
         DoorAnimator.SetBool("Start", true);
@@ -26,6 +29,7 @@ public class MainManuScript : MonoBehaviour
 
     public void QuitGame()
     {
+        audioManager.PlaySound("BigClick");
         ChangeDoorAccess(OffPhase, StandByPhase);
         Invoke("ActualQuit", 1f);
     }

@@ -4,7 +4,6 @@ using TMPro;
 
 public class PickGun : Interactable
 {
-
     public GameObject PlayerGun;
     public Image AimButton;
     public GameObject TriggerToActivate;
@@ -14,7 +13,7 @@ public class PickGun : Interactable
     {
         PlayerGun.SetActive(true);
         GunAnimator.SetTrigger("PickedGun");
-        FindObjectOfType<AudioManager>().PlaySound("Pistol Draw");
+        audioManager.PlaySound("Pistol Draw");
 
         AimButton.gameObject.SetActive(true);
         TriggerToActivate.SetActive(true);

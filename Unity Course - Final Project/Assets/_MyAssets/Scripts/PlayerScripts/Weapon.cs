@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     [Header("References")]
     public GameManager gameManager;
+    public AudioManager audioManager;
     public Transform Camera;
     public Transform FirePoint;
     public ParticleSystem MuzzleFlash;
@@ -68,7 +69,7 @@ public class Weapon : MonoBehaviour
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
 
         MuzzleFlash.Play();
-        FindObjectOfType<AudioManager>().PlaySound("Pistol Shot Cut");
+        audioManager.PlaySound("Pistol Shot Cut");
 
         animator.SetTrigger(animatorParam);
     }
@@ -98,7 +99,7 @@ public class Weapon : MonoBehaviour
 
             animatorParam = "Reload";
             animator.SetTrigger(animatorParam);
-            FindObjectOfType<AudioManager>().PlaySound("Pistol Reload");
+            audioManager.PlaySound("Pistol Reload");
 
             ammoSpaceToFill = _magSize - _magCurrentAmmo;
 
