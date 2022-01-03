@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
 
     public FirstPersonController Player;
 
+    [Header("Pause Menu")]
+    public PauseMenu pauseMenu;
+    public GameObject pauseMenuPanel;
+    public GameObject UICanvas;
+
     [Header("Level Finish")]
     public GameObject FinishLevelTrigger;
     public FinishLevel FinishLevelScript;
@@ -15,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Level Finish")]
     public TextMeshProUGUI GameOverText;
+
 
     private void Start()
     {
@@ -30,12 +36,29 @@ public class GameManager : MonoBehaviour
             FinishLevelScript.LevelEnding();
             Invoke("GoToMainMenu", 10f);
         }
+
     }
 
     public void GoToMainMenu()
     {
         Debug.Log("Main Menu!");
         SceneManager.LoadScene(0);
+    }
+
+    public void OpenPauseMenu()
+    {
+        Player.isAllowedToWalk = false;
+        UICanvas.SetActive(false);
+
+        pauseMenuPanel.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        Player.isAllowedToWalk = true;
+        UICanvas.SetActive(true);
+
+        pauseMenuPanel.SetActive(false);
     }
 
     public void LoseCondition()
