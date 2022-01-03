@@ -6412,7 +6412,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1174405375
+    rgba: 4278190335
   m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -18899,7 +18899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &800165542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41315,7 +41315,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42949,7 +42949,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -67057,7 +67057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[1].Clip
@@ -67144,6 +67144,14 @@ PrefabInstance:
       value: LevelWon
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[11].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c1e3a87671f318548a1c354c29cc2dbf, type: 3}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[11].Name
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[1].Pitch
       value: 1
       objectReference: {fileID: 0}
@@ -67188,6 +67196,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[11].Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[1].Vulume
       value: 0.8
       objectReference: {fileID: 0}
@@ -67225,6 +67237,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[10].Vulume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
+      propertyPath: Sounds.Array.data[11].Vulume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522517, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}

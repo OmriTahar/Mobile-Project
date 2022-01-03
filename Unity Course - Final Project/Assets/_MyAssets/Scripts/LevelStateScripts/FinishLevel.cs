@@ -5,6 +5,7 @@ public class FinishLevel : MonoBehaviour
 {
 
     [Header("References")]
+    public GameManager gameManager;
     public GameObject HUD;
     public TextMeshProUGUI EndText;
     public GameObject PlayerCamera;
@@ -25,5 +26,6 @@ public class FinishLevel : MonoBehaviour
         EndText.gameObject.SetActive(true);
         PlayerCamera.SetActive(false);
         EndCamera.SetActive(true);
+        gameManager.WinCondition();
     }
 }

@@ -30,22 +30,8 @@ public class GameManager : MonoBehaviour
         FinishLevelCamera.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (FinishLevelScript.isTriggered)
-        {
-            Player.isAllowedToWalk = false;
-            audioManager.PlaySound("LevelWon");
-
-            FinishLevelScript.isTriggered = false;
-            FinishLevelScript.LevelEnding();
-            Invoke("GoToMainMenu", 10f);
-        }
-    }
-
     public void GoToMainMenu()
     {
-        //audioManager.PlaySound("Click");
         Debug.Log("Main Menu!");
         SceneManager.LoadScene(0);
     }
@@ -70,8 +56,19 @@ public class GameManager : MonoBehaviour
         pauseMenuPanel.SetActive(false);
     }
 
+    public void WinCondition()
+    {
+        Player.isAllowedToWalk = false;
+        audioManager.PlaySound("LevelWon");
+
+        FinishLevelScript.isTriggered = false;
+        FinishLevelScript.LevelEnding();
+        Invoke("GoToMainMenu", 10f);
+    }
+
     public void LoseCondition()
     {
+        audioManager.PlaySound("GameOver");
         GameOverText.gameObject.SetActive(true);
         Invoke("GoToMainMenu", 4f);
     }
