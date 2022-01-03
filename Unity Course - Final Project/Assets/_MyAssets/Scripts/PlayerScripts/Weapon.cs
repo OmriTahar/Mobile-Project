@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
     BulletPool _bulletPool;
     int ammoSpaceToFill = 0;
     int ammoToReload = 0;
+    private bool _hasLost = false;
 
 
     void Start()
@@ -54,9 +55,10 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0) // Lose Condition
+        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0 && !_hasLost) // Lose Condition
         {
-            gameManager.LoseCondition();
+            _hasLost = true;
+            gameManager.GameOver();
         }
     }
 

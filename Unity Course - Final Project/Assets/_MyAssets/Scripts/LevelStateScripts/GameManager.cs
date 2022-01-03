@@ -62,17 +62,17 @@ public class GameManager : MonoBehaviour
         audioManager.PlaySound("LevelWon");
 
         FinishLevelScript.isTriggered = false;
-        FinishLevelScript.LevelEnding();
-        Invoke("GoToMainMenu", 10f);
+        Invoke("GoToMainMenu", 9f);
     }
 
-    public void LoseCondition()
+    public void GameOver()
     {
         audioManager.PlaySound("GameOver");
         GameOverText.gameObject.SetActive(true);
-        Invoke("GoToMainMenu", 4f);
+        Invoke("GoToMainMenu", 5f);
     }
 
+    
     public void QuitGame() 
     {
         Application.Quit();

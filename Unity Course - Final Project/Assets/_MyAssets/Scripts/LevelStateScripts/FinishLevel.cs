@@ -26,6 +26,7 @@ public class FinishLevel : MonoBehaviour
         EndText.gameObject.SetActive(true);
         PlayerCamera.SetActive(false);
         EndCamera.SetActive(true);
+
         gameManager.WinCondition();
     }
 }

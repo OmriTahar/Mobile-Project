@@ -23,7 +23,7 @@ public class MainManuScript : MonoBehaviour
     public void StartGame()
     {
         audioManager.PlaySound("BigClick");
-        audioManager.FadeOutSound("MenuTheme", 2f);
+        //audioManager.FadeOutSound("MenuTheme", 2f);
 
         canvas.gameObject.SetActive(false);
         ChangeDoorAccess(OnPhase, StandByPhase);

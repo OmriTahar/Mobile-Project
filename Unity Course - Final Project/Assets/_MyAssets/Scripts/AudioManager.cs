@@ -48,32 +48,32 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public IEnumerator FadeOutSound(string name, float fadeTime)
-    {
-        Sound s = Array.Find(Sounds, sound => sound.Name == name);
+    //public IEnumerator FadeOutSound(string name, float fadeTime)
+    //{
+    //    Sound s = Array.Find(Sounds, sound => sound.Name == name);
 
-        Debug.Log("starting to fade audio");
+    //    Debug.Log("starting to fade audio");
 
 
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            yield break;
-        }
+    //    if (s == null)
+    //    {
+    //        Debug.LogWarning("Sound: " + name + " not found!");
+    //        yield break;
+    //    }
 
-        Debug.Log("Fading audio!");
+    //    Debug.Log("Fading audio!");
 
-        float startVolume = s.source.volume;
+    //    float startVolume = s.source.volume;
 
-        while (s.source.volume > 0)
-        {
-            s.source.volume -= startVolume * Time.deltaTime / fadeTime;
+    //    while (s.source.volume > 0)
+    //    {
+    //        s.source.volume -= startVolume * Time.deltaTime / fadeTime;
 
-            yield return null;
-        }
+    //        yield return null;
+    //    }
 
-        s.source.Stop();
-        s.source.volume = startVolume;
-    }
+    //    s.source.Stop();
+    //    s.source.volume = startVolume;
+    //}
 
 }
