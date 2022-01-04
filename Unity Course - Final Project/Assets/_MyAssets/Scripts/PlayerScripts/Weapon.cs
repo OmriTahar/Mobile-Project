@@ -79,7 +79,7 @@ public class Weapon : MonoBehaviour
 private void ShootFlow()
     {
         _magCurrentAmmo -= 1;
-        AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
+        UpdateAmmoText();
 
         Vector3 bulletVelocity = Camera.forward * _bulletSpeed;
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
@@ -110,6 +110,15 @@ private void ShootFlow()
     public void UpdateAmmoText()
     {
         AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
+
+        if (SpareAmmo + _magCurrentAmmo <= 3)
+        {
+            AmmoText.color = Color.red;
+        }
+        else
+        {
+            AmmoText.color = Color.white;
+        }
     }
 
     public void Reload()
