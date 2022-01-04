@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //Player.isAllowedToWalk = false;
-
+        Player.isAllowedToWalk = false;
         FinishLevelCamera.SetActive(false);
     }
 
