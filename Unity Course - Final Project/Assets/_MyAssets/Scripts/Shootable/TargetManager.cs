@@ -9,6 +9,7 @@ public class TargetManager : MonoBehaviour
     public List<Target> TargetList = new List<Target>();
     public int triggerCounter = 0;
     public bool isAllTriggered = false;
+
     [Header("Door Access")]
     public DoorAccess DoorAccess;
 

@@ -15,6 +15,11 @@ public class Weapon : MonoBehaviour
     public int _magCurrentAmmo = 3;
     public TextMeshProUGUI AmmoText;
 
+    [Header("Lose Condition")]
+    public CollectableMAG extraMag;
+    public TargetManager targetManager;
+    public SwitchManager switchManager;
+
     [Header("Animator")]
     public Animator animator;
     public string animatorParam = "Shoot";
@@ -53,18 +58,26 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Update()
+
+    private void LoseConditionCheck()
     {
-        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0 && !_hasLost) // Lose Condition
+        if (_magCurrentAmmo <= 0 && SpareAmmo <= 0) // Freaking lose condition
         {
-            _hasLost = true;
-            gameManager.GameOver();
+            if (extraMag.isPicked || !extraMag.isPicked && !switchManager.OpenSwitch.isTriggered)
+            {
+                if (!targetManager.isAllTriggered && !_hasLost)
+                {
+                    _hasLost = true;
+                    gameManager.GameOver();
+                }
+            }
         }
     }
 
-    private void ShootFlow()
-    {
+   
 
+private void ShootFlow()
+    {
         _magCurrentAmmo -= 1;
         AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
 
@@ -75,6 +88,8 @@ public class Weapon : MonoBehaviour
         audioManager.PlaySound("Pistol Shot Cut");
 
         animator.SetTrigger(animatorParam);
+
+        Invoke("LoseConditionCheck", 1f);
     }
 
     public void Shoot()
@@ -90,6 +105,11 @@ public class Weapon : MonoBehaviour
             ShootFlow();
             Invoke("Reload", 0.5f);
         }
+    }
+
+    public void UpdateAmmoText()
+    {
+        AmmoText.text = _magCurrentAmmo + "/" + SpareAmmo;
     }
 
     public void Reload()
