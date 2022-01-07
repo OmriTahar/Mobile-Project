@@ -10860,6 +10860,7 @@ GameObject:
   - component: {fileID: 368545569}
   - component: {fileID: 368545568}
   - component: {fileID: 368545571}
+  - component: {fileID: 368545572}
   m_Layer: 0
   m_Name: Walk Trigger Object
   m_TagString: Untagged
@@ -10961,6 +10962,19 @@ MonoBehaviour:
   TriggerToActivate: {fileID: 0}
   PlayerController: {fileID: 0}
   PlayerInteraction: {fileID: 0}
+--- !u!114 &368545572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368545566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68dfba7282cc9404986a0efc14f64b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseButton: {fileID: 517080534}
 --- !u!1 &383337092
 GameObject:
   m_ObjectHideFlags: 0
@@ -19483,8 +19497,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827682590}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.25, y: 1, z: 35.55}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 54.83, y: 1, z: 33.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735442209}
@@ -19492,7 +19506,7 @@ Transform:
   - {fileID: 871366286}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &827682595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23663,8 +23677,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 2.095253}
+  m_Center: {x: 0, y: 0, z: 0.5476265}
 --- !u!23 &1019574312
 MeshRenderer:
   m_ObjectHideFlags: 0
