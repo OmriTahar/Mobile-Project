@@ -33,14 +33,18 @@ public class PlayerInteractionController : MonoBehaviour
             isAbleToInteract = true;
             currentInteractable = hit.collider.GetComponent<Interactable>();
             interactButton.gameObject.SetActive(true);
-            text.gameObject.SetActive(true);
+
+            if (text.gameObject != null)
+                text.gameObject.SetActive(true);
         }
         else
         {
             isAbleToInteract = false;
             currentInteractable = null;
             interactButton.gameObject.SetActive(false);
-            text.gameObject.SetActive(false);
+
+            if (text.gameObject != null)
+                text.gameObject.SetActive(false);
         }
 
         interactButton.interactable = currentInteractable != null;
