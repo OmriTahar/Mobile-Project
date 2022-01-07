@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody rigidbody;
     public float lifeTime;
+    public GameObject hitEffect;
 
     public void Activate(Vector3 position, Vector3 velocity)
     {
@@ -30,5 +31,18 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        Transform excectHitPoint = gameObject.transform;
+        print("Object Name:" + name + " ,Positon: " + excectHitPoint.position + " ,Rotation: " +  excectHitPoint.rotation);
+
+        SpawnHitEffect(excectHitPoint, hitEffect, collision.transform);
+        Deactivate();
+    }
+
+    void SpawnHitEffect(Transform hitPoint, GameObject effectPrefab, Transform newParent)
+    {
+        GameObject spawnedEffect = GameObject.Instantiate(effectPrefab, hitPoint.position, Quaternion.LookRotation(hitPoint.forward));
+        spawnedEffect.transform.SetParent(newParent.transform);
+    }
 }

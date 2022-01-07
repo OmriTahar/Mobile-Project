@@ -20,16 +20,17 @@ public class Weapon : MonoBehaviour
     public TargetManager targetManager;
     public SwitchManager switchManager;
 
-    [Header("Animator")]
+    [Header("Animator and Effects")]
     public Animator animator;
     public string animatorParam = "Shoot";
+    public AudioManager audioManager;
+    public ParticleSystem MuzzleFlash;
+    public ParticleSystem BulletCase;
 
     [Header("References")]
     public GameManager gameManager;
-    public AudioManager audioManager;
     public Transform Camera;
     public Transform FirePoint;
-    public ParticleSystem MuzzleFlash;
 
     [Header("Information")]
     public bool _isInfiniteAmmo = true;
@@ -85,6 +86,7 @@ private void ShootFlow()
         _bulletPool.PickFromPool(FirePoint.position, bulletVelocity);
 
         MuzzleFlash.Play();
+        BulletCase.Play();
         audioManager.PlaySound("Pistol Shot Cut");
 
         animator.SetTrigger(animatorParam);
@@ -175,6 +177,11 @@ private void ShootFlow()
         CanShoot = true;
     }
 
+    public bool IsAllowedToShootFunc()
+    {
+        return CanShoot;
+    }
+
     public void DoneReloading()
     {
         if (!_isInfiniteAmmo)
@@ -187,4 +194,6 @@ private void ShootFlow()
         _isReloading = false;
         animatorParam = "Shoot";
     }
+
+    
 }
