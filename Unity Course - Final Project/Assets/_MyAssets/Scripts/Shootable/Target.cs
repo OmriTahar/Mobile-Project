@@ -53,17 +53,13 @@ public class Target : MonoBehaviour
             ChangeToStandby();
 
             gameObject.layer = 0;
-            collision.gameObject.GetComponent<Bullet>().Deactivate();
         }
 
         if (collision.gameObject.layer == 9 && gameObject.layer == 10 && !isTriggered)
         {
             isTriggered = true;
             SecondSwitch.isTriggered = false;
-            collision.gameObject.GetComponent<Bullet>().Deactivate();
-
-            Debug.Log("Hit switch!");
-            FindObjectOfType<AudioManager>().PlaySound("Door Open");
+            audioManager.PlaySound("Door Open");
         }
     }
 

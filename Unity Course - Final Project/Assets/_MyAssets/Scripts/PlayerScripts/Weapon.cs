@@ -75,9 +75,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-   
 
-private void ShootFlow()
+
+    private void ShootFlow()
     {
         _magCurrentAmmo -= 1;
         UpdateAmmoText();
@@ -195,5 +195,5 @@ private void ShootFlow()
         animatorParam = "Shoot";
     }
 
-    
+
 }

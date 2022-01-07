@@ -34,7 +34,8 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Transform excectHitPoint = gameObject.transform;
-        print("Object Name:" + name + " ,Positon: " + excectHitPoint.position + " ,Rotation: " +  excectHitPoint.rotation);
+
+        //print("Object Name:" + name + " ,Positon: " + excectHitPoint.position + " ,Rotation: " + excectHitPoint.rotation);
 
         SpawnHitEffect(excectHitPoint, hitEffect, collision.transform);
         Deactivate();
