@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522516, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: Sounds.Array.data[8].Vulume
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4429910686812522517, guid: 1a54b1cb6c54ca54b8a231db06df5c77, type: 3}
       propertyPath: m_Name

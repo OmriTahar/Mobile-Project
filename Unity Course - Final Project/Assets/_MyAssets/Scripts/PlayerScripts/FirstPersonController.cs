@@ -202,9 +202,9 @@ public class FirstPersonController : MonoBehaviour
         // Move relatively to the local transform's direction
         characterController.Move(transform.right * movementDirection.x + transform.forward * movementDirection.y);
 
-        if (moveInput.magnitude >= 0.5f)
+        if (moveInput.magnitude >= 0.5f && IsGrounded)
         {
-            if (!audioManager.Sounds[9].source.isPlaying)
+            if (!audioManager.Sounds[9].source.isPlaying && IsGrounded)
             {
                 audioManager.PlaySound("Step");
             }

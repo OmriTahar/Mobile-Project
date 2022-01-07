@@ -39,7 +39,7 @@ public class ActivateUITrigger : MonoBehaviour
             }
         }
 
-        if (PlayerInteraction != null && PlayerInteraction.isAbleToInteract) // Don't remember :(
+        if (PlayerInteraction != null && PlayerInteraction.isAbleToInteract) // Turn off Look tutorial when looking at first Door Access
         {
             Debug.Log("15 works");
             EndUITrigger();
