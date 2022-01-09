@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     public GameObject FinishLevelTrigger;
     public FinishLevel FinishLevelScript;
     public GameObject FinishLevelCamera;
-
-    [Header("Level Finish")]
     public TextMeshProUGUI GameOverText;
 
 

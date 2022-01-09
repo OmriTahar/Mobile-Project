@@ -11,11 +11,17 @@ public class FinishLevel : MonoBehaviour
     public GameObject PlayerCamera;
     public GameObject EndCamera;
 
+    [Header("Torches")]
+    public GameObject TorchLeft;
+    public GameObject TorchRight;
+
     [Header("Inforamtion")]
     public bool isTriggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        TorchLeft.SetActive(true);
+        TorchRight.SetActive(true);
         isTriggered = true;
         LevelEnding();
     }
