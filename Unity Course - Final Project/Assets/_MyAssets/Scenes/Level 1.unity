@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1109bede8a180a8419b2f84ad6d0589f, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c16a51724e033924c9d984f68e5eb4b6, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -19157,8 +19157,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827682590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.9, y: 1, z: 68.65}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 1.25, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1735442209}
@@ -19166,7 +19166,7 @@ Transform:
   - {fileID: 871366286}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &827682595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19184,7 +19184,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1735442209}
   _cameraBobbing: {fileID: 827682598}
   touchInputDeadZone: 20
-  cameraSensitivity: 5
+  cameraSensitivity: 20
   isAllowedToLook: 1
   actualMoveSpeed: 8
   groundMoveSpeed: 8
