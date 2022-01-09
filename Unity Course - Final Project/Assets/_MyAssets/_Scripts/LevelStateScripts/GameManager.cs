@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlaySound("Click");
 
         Player.isAllowedToWalk = false;
+        Player.isAllowedToLook = false;
         UICanvas.SetActive(false);
 
         pauseMenuPanel.SetActive(true);
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlaySound("Click");
 
         Player.isAllowedToWalk = true;
+        Player.isAllowedToLook = true;
         UICanvas.SetActive(true);
 
         pauseMenuPanel.SetActive(false);
